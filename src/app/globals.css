@@ -2,21 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  @apply min-h-screen w-full overflow-x-hidden;
+}
 body {
   @apply bg-black text-silver antialiased;
 }
 
 @layer components {
-  .custom-container {
-    @apply px-4 mx-auto w-full;
-    @apply md:max-w-[769px];
-    @apply lg:max-w-[1024px];
-    @apply xl:max-w-[1024px];
+  .main-container {
+    @apply flex flex-col min-h-screen;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .responsive-section {
+    @apply flex flex-col items-center justify-center;
+    @apply px-4 mx-auto w-full;
+    @apply md:max-w-[769px];
+    @apply lg:max-w-[1024px];
+    @apply xl:max-w-[1024px];
   }
 }

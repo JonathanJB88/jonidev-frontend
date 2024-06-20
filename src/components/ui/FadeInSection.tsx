@@ -5,9 +5,10 @@ import { motion, useAnimation } from 'framer-motion';
 
 interface Props {
   children: ReactNode;
+  delay?: number;
 }
 
-export const FadeInSection = ({ children }: Props) => {
+export const FadeInSection = ({ children, delay = 0 }: Props) => {
   const controls = useAnimation();
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +53,7 @@ export const FadeInSection = ({ children }: Props) => {
       initial='hidden'
       animate={controls}
       variants={variants}
+      transition={{ delay }}
     >
       {children}
     </motion.div>

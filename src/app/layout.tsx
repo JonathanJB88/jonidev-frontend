@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Footer, Header } from '@/components';
+import { Footer, Header, SocialMedia } from '@/components';
 import { bodyFont } from '@/config';
 
 import './globals.css';
@@ -17,9 +17,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={bodyFont.className}>
-        <Header />
-        {children}
-        <Footer />
+        <div className='main-container bg-red-600'>
+          <Header />
+          <main>{children}</main>
+          <SocialMedia />
+          <Footer />
+        </div>
       </body>
     </html>
   );
