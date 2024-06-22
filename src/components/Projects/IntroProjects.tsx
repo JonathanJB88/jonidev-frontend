@@ -9,7 +9,7 @@ export const IntroProjects = () => {
           <h1
             className={`text-4xl md:text-7xl font-bold text-crimson ${titleFont.className}`}
           >
-            The Ultimate <br /> development studio
+            The Ultimate <br /> development studio.
           </h1>
           <p
             className={`max-w-2xl text-base md:text-xl mt-4 md:mt-8 ${subtitleFont.className}`}

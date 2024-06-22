@@ -31,7 +31,7 @@ export const Intro = () => {
         <FadeInSection>
           <div className='flex flex-col justify-center items-center text-center'>
             <Title>
-              Hola, soy{' '}
+              Hola, soy <br className='block md:hidden' />
               <span className={`text-crimson font-bold ${titleFont.className}`}>
                 Jonathan Bracho.
               </span>
