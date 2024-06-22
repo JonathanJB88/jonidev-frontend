@@ -6,30 +6,40 @@ export const useActiveSection = (href: string, offset = 0) => {
   useEffect(() => {
     const handleScroll = () => {
       if (href.startsWith('mailto:')) return;
-      const isInitSection = href === '/#';
-
+      const scroll = window.scrollY;
       let top = 0,
         bottom = 0;
+      const isInitSection = href === '/#';
 
-      if (!isInitSection) {
+      if (isInitSection) {
+        top = 0;
+        bottom = window.innerHeight * 0.5;
+      } else {
         const section = document.querySelector(href.slice(1)) as HTMLElement;
         if (!section) return;
         top = section.offsetTop + offset;
         bottom = top + section.offsetHeight;
       }
 
-      const scroll = window.scrollY;
-
       if (scroll >= top && scroll < bottom) {
-        setIsActive(true);
+        if (!isActive) {
+          window.history.replaceState({}, '', href);
+          setIsActive(true);
+        }
       } else {
-        setIsActive(false);
+        if (isActive && isInitSection && scroll > bottom) {
+          setIsActive(false);
+        } else if (isActive) {
+          setIsActive(false);
+        }
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [href, offset]);
+  }, [href, offset, isActive]);
 
   return isActive;
 };

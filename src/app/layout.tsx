@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={bodyFont.className}>
-        <div className='main-container bg-red-600'>
+        <div className='main-container'>
           <Header />
           <main>{children}</main>
           <SocialMedia />

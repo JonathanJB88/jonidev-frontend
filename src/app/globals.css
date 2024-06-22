@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 html,
 body {
-  @apply min-h-screen w-full overflow-x-hidden;
+  @apply min-h-screen w-screen overflow-x-hidden;
 }
 body {
   @apply bg-black text-silver antialiased;

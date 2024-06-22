@@ -1,6 +1,6 @@
-import { Inter, Poppins, Roboto } from 'next/font/google';
+import { Inter, Roboto, Bitter } from 'next/font/google';
 
-export const titleFont = Poppins({
+export const titleFont = Bitter({
   subsets: ['latin'],
   weight: ['500', '700'],
 });

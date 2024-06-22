@@ -32,9 +32,7 @@ export const Intro = () => {
           <div className='flex flex-col justify-center items-center text-center'>
             <Title>
               Hola, soy{' '}
-              <span
-                className={`text-crimson font-semibold ${titleFont.className}`}
-              >
+              <span className={`text-crimson font-bold ${titleFont.className}`}>
                 Jonathan Bracho.
               </span>
             </Title>
@@ -74,6 +72,6 @@ const ctaLinks = [
     Icon: CiLinkedin,
     text: 'LinkedIn',
     classname:
-      'bg-transparent text-crimson border border-crimson hover:bg-crimson hover:text-white',
+      'bg-transparent text-crimson border border-crimson hover:bg-crimson hover:text-softwhite',
   },
 ];
