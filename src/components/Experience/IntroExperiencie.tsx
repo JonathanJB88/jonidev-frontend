@@ -6,17 +6,15 @@ export const IntroExperiencie = () => {
   return (
     <div className='flex flex-col w-full lg:w-1/3 mt-4'>
       <FadeInSection>
-        <h2
-          className={`text-crimson uppercase tracking-widest ${titleFont.className}`}
+        <h1
+          className={`text-crimson text-body-xs md:text-body-md uppercase tracking-widest ${titleFont.className}`}
         >
           Working Process
-        </h2>
-        <h3
-          className={`text-4xl md:text-6xl leading-normal  mb-4 ${subtitleFont.className}`}
-        >
+        </h1>
+        <h2 className={`leading-normal  mb-4 ${subtitleFont.className}`}>
           My working experience
-        </h3>
-        <p className='text-base md:text-2xl mb-10'>
+        </h2>
+        <p className='mb-10'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
           dolore! Ullam ab autem ea ducimus asperiores ipsum, maiores assumenda
           deserunt error aspernatur velit perferendis magni quas aliquid at

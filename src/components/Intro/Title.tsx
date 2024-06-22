@@ -7,9 +7,7 @@ interface Props {
 
 export const Title = ({ children }: Props) => {
   return (
-    <h1
-      className={`text-4xl md:text-7xl text-softwhite mb-4 ${subtitleFont.className}`}
-    >
+    <h1 className={`text-softwhite mb-4 ${subtitleFont.className}`}>
       {children}
     </h1>
   );

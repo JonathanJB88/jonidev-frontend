@@ -6,16 +6,16 @@ export default function Home() {
       <section id='#' className='responsive-section'>
         <Intro />
       </section>
-      <section id='experiencia' className='responsive-section py-32'>
+      <section id='experiencia' className='responsive-section py-24 md:py-32'>
         <Experience />
       </section>
-      <section id='proyectos' className='responsive-section py-32'>
+      <section id='proyectos' className='responsive-section py-24 md:py-32'>
         <Projects />
       </section>
-      <section id='sobre-mi' className='responsive-section py-32'>
+      <section id='sobre-mi' className='responsive-section py-24 md:py-32'>
         <About />
       </section>
-      <section id='blog' className='responsive-section py-32'>
+      <section id='blog' className='responsive-section py-24 md:py-32'>
         <Blog />
       </section>
     </>

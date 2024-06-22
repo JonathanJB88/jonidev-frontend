@@ -22,13 +22,9 @@ export const TimelineItem = ({ item, isReversed }: Props) => {
           isReversed ? 'text-right' : 'text-left'
         }`}
       >
-        <p className='mb-3 text-base text-crimson'>{item.date}</p>
-        <h4 className='mb-3 font-bold text-lg md:text-2xl text-softwhite'>
-          {item.title}
-        </h4>
-        <p className='text-sm md:text-base leading-snug text-opacity-100'>
-          {item.description}
-        </p>
+        <p className='mb-3 text-crimson'>{item.date}</p>
+        <h4 className='mb-3 text-softwhite'>{item.title}</h4>
+        <p className='leading-snug'>{item.description}</p>
       </div>
     </div>
   );

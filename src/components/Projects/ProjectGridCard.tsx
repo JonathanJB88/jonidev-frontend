@@ -17,13 +17,13 @@ export const ProjectGridCard = ({ project }: Props) => {
       </div>
       <div className='bg-charcoal py-4 px-3'>
         <div className='flex justify-between items-center'>
-          <h3 className='text-sm text-softwhite'>{project.title}</h3>
+          <h4 className='text-softwhite'>{project.title}</h4>
           <div className='relative z-40 flex items-center gap-2'>
             <Link
               href={project.link}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-sm text-softwhite'
+              className='text-softwhite'
             >
               <IoIosLink className='text-softwhite inline-block mx-2' />
               <span>Preview</span>

@@ -24,7 +24,7 @@ export const Intro = () => {
             <ProfilePicture />
             <TextHightlight
               title='Frontend Developer'
-              classname={`text-2xl ${subtitleFont.className}`}
+              classname={`${subtitleFont.className}`}
             />
           </div>
         </FadeInSection>
@@ -32,12 +32,14 @@ export const Intro = () => {
           <div className='flex flex-col justify-center items-center text-center'>
             <Title>
               Hola, soy <br className='block md:hidden' />
-              <span className={`text-crimson font-bold ${titleFont.className}`}>
+              <span
+                className={`text-crimson font-bold text-h1-xs md:text-h1-md lg:text-h1-lg ${titleFont.className}`}
+              >
                 Jonathan Bracho.
               </span>
             </Title>
 
-            <p className='text-base md:text-xl text-softwhite mb-4'>
+            <p className='text-softwhite mb-4'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus corporis et, dolorem accusamus ipsam expedita eos
               aperiam sunt! Eum nemo ut, culpa minima cum corporis molestias

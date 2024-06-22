@@ -7,12 +7,10 @@ export const About = () => {
     <div className='flex flex-col justify-center container mx-auto'>
       <FadeInSection>
         <div className='mx-auto md:px-0'>
-          <h2
-            className={`text-4xl md:text-7xl font-bold text-crimson md:text-left ${titleFont.className}`}
-          >
+          <h1 className={`text-crimson md:text-left ${titleFont.className}`}>
             About Me.
-          </h2>
-          <p className='text-base md:text-2xl pt-6 w-full md:w-2/3'>
+          </h1>
+          <p className='mt-4 md:mt-8 w-full md:w-2/3'>
             Lorem ipsum dolor sit amet, consectetur adipiscing adipiscing
             adipiscing elit. Pellentesque imperdiet consectetur dolor in
             elementum.
@@ -21,7 +19,7 @@ export const About = () => {
       </FadeInSection>
 
       <FadeInSection delay={0.5}>
-        <div className='flex flex-col md:flex-row justify-center items-center pt-20 md:pt-32 w-full'>
+        <div className='flex flex-col md:flex-row justify-center items-center pt-12 md:pt-32 w-full'>
           <div className='md:w-1/2 flex justify-center items-center md:hidden'>
             <Image
               src='https://picsum.photos/300/300'
@@ -33,7 +31,7 @@ export const About = () => {
           </div>
 
           <div className='md:w-1/2 mt-6 md:mt-0'>
-            <p className='text-base md:text-2xl md:mr-4'>
+            <p className='md:mr-4'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
               risus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Inventore dicta minus id maiores culpa molestiae similique tempore

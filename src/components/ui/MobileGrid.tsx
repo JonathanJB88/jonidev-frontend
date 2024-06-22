@@ -7,7 +7,7 @@ interface Props {
 
 export const MobileGrid = ({ projects }: Props) => {
   return (
-    <div className='relative flex md:hidden min-h-screen flex-col justify-center overflow-hidden'>
+    <div className='relative container flex md:hidden min-h-screen flex-col justify-center overflow-hidden'>
       <div className='max-w-screen-xl w-full'>
         <IntroProjects />
         <div className='grid w-full gap-6'>

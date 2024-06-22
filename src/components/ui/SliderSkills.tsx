@@ -7,7 +7,7 @@ export const SliderSkills = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1500,
+    speed: 2000,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
@@ -37,7 +37,11 @@ export const SliderSkills = () => {
     { src: 'https://picsum.photos/200', alt: 'Skill 3' },
     { src: 'https://picsum.photos/200', alt: 'Skill 4' },
     { src: 'https://picsum.photos/200', alt: 'Skill 5' },
-    // Añade más iconos según sea necesario
+    { src: 'https://picsum.photos/200', alt: 'Skill 6' },
+    { src: 'https://picsum.photos/200', alt: 'Skill 7' },
+    { src: 'https://picsum.photos/200', alt: 'Skill 8' },
+    { src: 'https://picsum.photos/200', alt: 'Skill 9' },
+    { src: 'https://picsum.photos/200', alt: 'Skill 10' },
   ];
 
   return (
