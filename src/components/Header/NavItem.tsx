@@ -1,10 +1,12 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { subtitleFont } from '@/config';
 import { useActiveSection } from '@/hooks';
+import { scrollTo } from '@/utils';
 
 interface Props {
   node: string | ReactNode;
@@ -12,27 +14,25 @@ interface Props {
   mobileHidden?: boolean;
 }
 
-const scrollTo = (top = 0) => {
-  window.scrollTo({
-    top,
-    behavior: 'smooth',
-  });
-};
-
 export const NavItem = ({ node, href, mobileHidden = false }: Props) => {
   const isActive = useActiveSection(href);
+  const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (href.startsWith('mailto:')) return;
     e.preventDefault();
-    const isInitSection = href === '/#';
+    const isInitSection = href.endsWith('#');
+    const selector = href.split('#').pop()!;
+
     const section = isInitSection
       ? document.body
-      : (document.querySelector(href.slice(1)) as HTMLElement);
+      : (document.querySelector(`#${selector}`) as HTMLElement);
+
     if (section) {
       const top = section.offsetTop;
       scrollTo(top);
-      window.history.pushState({}, '', href);
+
+      router.push(href, { scroll: false });
     }
   };
 
@@ -52,6 +52,7 @@ export const NavItem = ({ node, href, mobileHidden = false }: Props) => {
     <Link
       key={href}
       href={href}
+      locale={false}
       aria-label={href}
       onClick={handleClick}
       scroll={false}

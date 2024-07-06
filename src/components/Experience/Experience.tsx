@@ -1,12 +1,17 @@
 import { ExperienceContent, IntroExperiencie } from '@/components';
+import { ExperienceTranslations } from '@/interfaces';
 
-export const Experience = () => {
+interface Props {
+  translations: ExperienceTranslations;
+}
+
+export const Experience = ({ translations }: Props) => {
   return (
     <div className='relative'>
       <div className='mx-auto flex flex-col lg:flex-row'>
-        <IntroExperiencie />
+        <IntroExperiencie translations={translations} />
 
-        <ExperienceContent />
+        <ExperienceContent translations={translations} />
       </div>
     </div>
   );

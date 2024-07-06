@@ -1,7 +1,15 @@
 import Image from 'next/image';
-import { NavItem } from '@/components';
+import { LangSwitcher, NavItem } from '@/components';
+import type { HeaderTranslations, Locale } from '@/interfaces';
 
-const menuItems = [
+interface Props {
+  translations: HeaderTranslations;
+  locale: Locale;
+}
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+const getMenuItems = (trans: HeaderTranslations, locale: Locale) => [
   {
     node: (
       <Image
@@ -11,20 +19,34 @@ const menuItems = [
         height={50}
       />
     ),
-    href: '/#',
+    href: `/${locale}/${baseUrl}#`,
   },
-  { node: 'Experiencia', href: '/#experiencia' },
-  { node: 'Proyectos', href: '/#proyectos' },
-  { node: 'Sobre mí', href: '/#sobre-mi' },
-  { node: 'Blog', href: '/#blog' },
   {
-    node: 'Contacto',
-    href: 'mailto:jonajes0288@gmail.com',
+    node: trans.experience.title,
+    href: `/${locale}/${baseUrl}#${trans.experience.href}`,
+  },
+  {
+    node: trans.projects.title,
+    href: `/${locale}/${baseUrl}#${trans.projects.href}`,
+  },
+  {
+    node: trans.about.title,
+    href: `/${locale}/${baseUrl}#${trans.about.href}`,
+  },
+  {
+    node: trans.writing.title,
+    href: `/${locale}/${baseUrl}#${trans.writing.href}`,
+  },
+  {
+    node: trans.contact.title,
+    href: trans.contact.href,
     mobileHidden: true,
   },
 ];
 
-export const Header = () => {
+export const Header = ({ translations, locale }: Props) => {
+  const menuItems = getMenuItems(translations, locale);
+
   return (
     <header className='flex items-center justify-between p-4 w-full fixed top-0 z-10 text-softwhite'>
       <nav className='flex mx-auto justify-center items-center overflow-hidden'>
@@ -37,6 +59,8 @@ export const Header = () => {
           />
         ))}
       </nav>
+
+      <LangSwitcher currentLocale={locale} />
     </header>
   );
 };

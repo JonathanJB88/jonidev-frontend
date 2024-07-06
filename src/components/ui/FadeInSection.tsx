@@ -9,8 +9,8 @@ interface Props {
 }
 
 export const FadeInSection = ({ children, delay = 0 }: Props) => {
-  const controls = useAnimation();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,9 +31,7 @@ export const FadeInSection = ({ children, delay = 0 }: Props) => {
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      observer.disconnect();
     };
   }, [controls]);
 

@@ -2,8 +2,13 @@
 
 import Slider from 'react-slick';
 import Image from 'next/image';
+import { Skill } from '@/interfaces';
 
-export const SliderSkills = () => {
+interface Props {
+  skills: Skill[];
+}
+
+export const SliderSkills = ({ skills }: Props) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -31,19 +36,6 @@ export const SliderSkills = () => {
     ],
   };
 
-  const skills = [
-    { src: 'https://picsum.photos/200', alt: 'Skill 1' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 2' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 3' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 4' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 5' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 6' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 7' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 8' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 9' },
-    { src: 'https://picsum.photos/200', alt: 'Skill 10' },
-  ];
-
   return (
     <Slider {...settings}>
       {skills.map((skill, index) => (
@@ -51,9 +43,9 @@ export const SliderSkills = () => {
           <Image
             src={skill.src}
             alt={skill.alt}
-            width={100}
-            height={100}
-            className='mx-auto'
+            width={60}
+            height={60}
+            className='mx-auto w-16 h-16'
           />
         </div>
       ))}

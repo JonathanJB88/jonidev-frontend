@@ -1,5 +1,6 @@
 export * from './Header/Header';
 export * from './Header/NavItem';
+export * from './Header/LangSwitcher';
 
 export * from './Intro/Intro';
 export * from './Intro/ProfilePicture';

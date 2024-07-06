@@ -3,13 +3,14 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { IntroProjects, ProjectCard } from '@/components';
-import { Project } from '@/interfaces';
+import { Project, ProjectTranslations } from '@/interfaces';
 
 interface Props {
   projects: Project[];
+  translations: ProjectTranslations;
 }
 
-export const HeroParallax = ({ projects }: Props) => {
+export const HeroParallax = ({ projects, translations }: Props) => {
   const firstRow = projects.slice(0, 5);
   const secondRow = projects.slice(5, 10);
   const thirdRow = projects.slice(10, 15);
@@ -48,9 +49,9 @@ export const HeroParallax = ({ projects }: Props) => {
   return (
     <div
       ref={ref}
-      className='h-[250vh] overflow-hidden hidden antialiased relative md:flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]'
+      className='h-[200vh] overflow-hidden hidden antialiased relative md:flex flex-col self-auto [perspective:800px] [transform-style:preserve-3d]'
     >
-      <IntroProjects />
+      <IntroProjects translations={translations} />
       <motion.div
         style={{
           rotateX,

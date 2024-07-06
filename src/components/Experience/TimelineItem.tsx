@@ -24,7 +24,7 @@ export const TimelineItem = ({ item, isReversed }: Props) => {
       >
         <p className='mb-3 text-crimson'>{item.date}</p>
         <h4 className='mb-3 text-softwhite'>{item.title}</h4>
-        <p className='leading-snug'>{item.description}</p>
+        <small className='leading-snug'>{item.description}</small>
       </div>
     </div>
   );

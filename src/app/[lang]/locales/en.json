@@ -1,0 +1,152 @@
+{
+  "header": {
+    "experience": {
+      "title": "Experience",
+      "href": "experience"
+    },
+
+    "projects": {
+      "title": "Projects",
+      "href": "projects"
+    },
+
+    "about": {
+      "title": "About",
+      "href": "about"
+    },
+
+    "writing": {
+      "title": "Writing",
+      "href": "writing"
+    },
+
+    "contact": {
+      "title": "Contact",
+      "href": "mailto:jonajes0288@gmail.com"
+    }
+  },
+  "footer": {
+    "title": "Jonathan Bracho",
+    "subtitle": "Creative Frontend Developer"
+  },
+  "intro": {
+    "title": "Hi, I'm",
+    "subtitle": "Jonathan Bracho.",
+    "description": "A versatile Frontend Developer with +{years} years of experience in React, Next.js and TypeScript, creating dynamic, responsive web applications optimized for SEO and user experience. Skilled in RESTful and GraphQL APIs, Azure, and Cloudinary. With a Master’s in Business Administration, I apply agile methodologies and hold multiple certifications. Fluent in English, Spanish, and Italian, I am dedicated to continuous professional development and innovative software solutions.",
+    "cta": [
+      {
+        "text": "Contact me",
+        "ariaLabel": "Contact me"
+      },
+      {
+        "text": "LinkedIn",
+        "ariaLabel": "LinkedIn Profile"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Working Process",
+    "subtitle": "My Working experience",
+    "description": "I've contributed to high impact projects using React, Next.js and TypeScript. I've led training programs in frontend development and agile methodologies. My roles have honed my skills in creating scalable, high performance web solutions that meet strategic business objectives.",
+    "cta": {
+      "text": "Download CV",
+      "ariaLabel": "Download Jonathan Bracho CV"
+    },
+    "experience": [
+      {
+        "company": "IZERTIS",
+        "description": "As Frontend Developer at Izertis, I develop websites and internal tools with JavaScript, TypeScript, React and Next.js. I optimize performance and SEO, maintaining high coding and testing standards with Jest. I collaborate in the implementation of new features, driving innovation.",
+        "date": "May 2023 - Present"
+      },
+      {
+        "company": "Atexis",
+        "description": "At ATEXIS, I led training programs in frontend and backend technologies, teaching coding, SCRUM methodologies and problem solving. I designed curricula and provided detailed feedback, improving team skills and project results.",
+        "date": "Oct - Dec 2022 | Jun - Aug 2023"
+      },
+      {
+        "company": "QuiroJairo Terapia",
+        "description": "I developed a web application for QuiroJairoTerapia, improving the therapist's digital interaction. I used Next.js, TypeScript and TailwindCSS in a mobile-first design optimized for SEO. I implemented advanced features such as user authentication, AI-assisted chatbot and appointment management. I used Redux Toolkit and performed extensive testing with Jest and Cypress, highlighting my ability to create scalable, high-quality solutions.",
+        "date": "Feb 2023 - Jun 2023"
+      },
+      {
+        "company": "BlastFunnels",
+        "description": "At BlastFunnels, as Frontend Developer, I improved the digital presence using React and TypeScript. I ensured modular code and robust testing with Jest. I worked with Scrum methodologies and managed team collaboration with Git and GitHub, optimizing efficiency and web for the company and diverse clients.",
+        "date": "Jan 2020 - Sep 2022"
+      },
+      {
+        "company": "Four Tools Academy",
+        "description": "As Frontend Developer at Four Tools Language Academy, I led the development of an internal management tool with the MERN stack. I designed a responsive interface with React.js and TypeScript, and integrated the backend with Node.js and MongoDB Atlas. I used SCRUM to manage deadlines and collaborated with cross-functional teams. This role enhanced my skills in creating scalable and maintainable solutions.",
+        "date": "Jan 2019 - Dec 2019"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Innovative Web Solutions",
+    "subtitle": "for Modern Businesses.",
+    "description": "Explore a portfolio of cutting-edge web applications and tools built with React, Next.js, TypeScript, and the latest technologies. Each project showcases my commitment to creating high-performance, scalable, and user-centric solutions that drive business success.",
+    "projects": [
+      {
+        "title": "Easy Physics",
+        "link": "https://fisicafacil.vercel.app/",
+        "thumbnail": "/img/projects/easyphysics.webp"
+      },
+      {
+        "title": "My Custom Hooks",
+        "link": "https://github.com/JonathanJB88/My-Custom-Hooks_Typescript",
+        "thumbnail": "/img/projects/customhooks.webp"
+      },
+      {
+        "title": "Maps App",
+        "link": "https://jonathandev-mapsapp.netlify.app/",
+        "thumbnail": "/img/projects/mapsapp.webp"
+      },
+      {
+        "title": "Calendar App",
+        "link": "https://jonathandev-calendar-app.netlify.app/",
+        "thumbnail": "/img/projects/calendarapp.webp"
+      },
+      {
+        "title": "Product Card Component",
+        "link": "https://www.npmjs.com/package/jon-productcard-component",
+        "thumbnail": "/img/projects/productcard.webp"
+      },
+      {
+        "title": "World Travelers",
+        "link": "https://world-travelers-production.up.railway.app/",
+        "thumbnail": "/img/projects/worldtravelers.webp"
+      },
+      {
+        "title": "Calculator App",
+        "link": "https://github.com/JonathanJB88/Calculator-ReactNative",
+        "thumbnail": "/img/projects/calculator.webp"
+      },
+      {
+        "title": "Movies App",
+        "link": "https://github.com/JonathanJB88/MoviesApp-reactNative",
+        "thumbnail": "/img/projects/movies.webp"
+      },
+      {
+        "title": "Pokedex App",
+        "link": "https://github.com/JonathanJB88/PokedexApp",
+        "thumbnail": "/img/projects/pokedex.webp"
+      },
+      {
+        "title": "Routes App",
+        "link": "https://github.com/JonathanJB88/MapsApp-ReactNative",
+        "thumbnail": "/img/projects/routes.webp"
+      },
+      {
+        "title": "Products App",
+        "link": "https://github.com/JonathanJB88/ProductsApp",
+        "thumbnail": "/img/projects/products.webp"
+      }
+    ]
+  },
+  "about": {
+    "title": "About Me.",
+    "description": [
+      "As a passionate Frontend Developer, I specialize in building high-performance, user-centric web applications using cutting-edge technologies like React, TypeScript, Next.js, and GraphQL. My current role at Izertis involves leading innovative projects for top-tier clients, focusing on creating robust, scalable solutions that enhance user experience and optimize SEO. My expertise also includes managing complex server-side integrations and ensuring code excellence through comprehensive testing.",
+      "Beyond my technical skills, I bring a unique blend of educational background and cultural appreciation. Fluent in English, Spanish, and Italian, I have a deep love for languages, cultural exchange, and discovering new places. In my free time, I enjoy cooking and exploring nature. This blend of professional expertise and personal passion drives me to continuously innovate and deliver exceptional web solutions."
+    ]
+  }
+}
