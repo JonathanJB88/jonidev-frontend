@@ -7,7 +7,7 @@ interface Props {
   locale: Locale;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.baseUrl;
 
 const getMenuItems = (trans: HeaderTranslations, locale: Locale) => [
   {

@@ -60,6 +60,11 @@ export interface AboutTranslations {
   description: string[];
 }
 
+export interface WritingTranslations {
+  title: string;
+  description: string;
+}
+
 export type JSONValue =
   | string
   | number
@@ -71,7 +76,8 @@ export type JSONValue =
   | IntroTranslations
   | ExperienceTranslations
   | ProjectTranslations
-  | AboutTranslations;
+  | AboutTranslations
+  | WritingTranslations;
 
 export interface JSONObject {
   [key: string]: JSONValue;
@@ -84,5 +90,6 @@ export interface SiteTranslations {
   experience: ExperienceTranslations;
   projects: ProjectTranslations;
   about: AboutTranslations;
+  writing: WritingTranslations;
   [key: string]: JSONValue;
 }

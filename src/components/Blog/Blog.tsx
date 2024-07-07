@@ -1,89 +1,58 @@
 import { titleFont } from '@/config';
 import { FadeInSection } from '@/components';
+import { Post, WritingTranslations } from '@/interfaces';
+import Link from 'next/link';
 
-const blogPosts = [
-  {
-    date: 'Feb 28 2024',
-    title: 'Getting something from Nothing',
-    description:
-      "When you're trying to use your phone less, what do you upgrade to? A sort-of review of swapping my phone for Nothing.",
-  },
-  {
-    date: 'Feb 22 2024',
-    title: "It's OK to abandon your side-project",
-    description:
-      "In an industry that pressures developers to always be shipping side-projects, it can be helpful to be retrospective with the projects that don't make the cut.",
-  },
-  {
-    date: 'Dec 31 2023',
-    title: '2023 Wrapped',
-    description:
-      'A quick look back at what went well in 2023, what did not, and what is next for the upcoming year.',
-  },
-  {
-    date: 'Dec 31 2023',
-    title: '2023 Wrapped',
-    description:
-      'A quick look back at what went well in 2023, what didn’t, and what’s next for the upcoming year.',
-  },
-  {
-    date: 'Dec 31 2023',
-    title: '2023 Wrapped',
-    description:
-      'A quick look back at what went well in 2023, what didn’t, and what’s next for the upcoming year.',
-  },
-  {
-    date: 'Dec 31 2023',
-    title: '2023 Wrapped',
-    description:
-      'A quick look back at what went well in 2023, what didn’t, and what’s next for the upcoming year.',
-  },
-];
+interface Props {
+  posts: Post[];
+  translations: WritingTranslations;
+}
 
-export const Blog = () => {
+export const Blog = ({ posts, translations }: Props) => {
+  const description = translations.description.replace(
+    'LinkedIn',
+    `<a href="https://www.linkedin.com/in/jonathanbracho/" target="_blank" rel="noopener noreferrer" class="text-crimson underline">LinkedIn</a>`
+  );
+
   return (
     <div className='container mx-auto'>
       <FadeInSection>
         <div>
           <h1 className={`text-crimson mb-6 md:mb-10 ${titleFont.className}`}>
-            My writing.
+            {translations.title}
           </h1>
           <p className='md:w-4/5'>
-            Here you will find my writing on topics ranging from coding and the
-            web industry, to linguistics and natural language processing - there
-            is also a{' '}
-            <a href='#' className='text-crimson underline'>
-              handy RSS feed
-            </a>
-            , if you would prefer to subscribe. If you would like to chat about
-            anything I have written,{' '}
-            <a href='#' className='text-crimson underline'>
-              say hi on Mastodon
-            </a>
-            .
+            <span
+              dangerouslySetInnerHTML={{
+                __html: description,
+              }}
+            />
           </p>
         </div>
       </FadeInSection>
 
       <div className='pt-8 md:pt-20'>
-        {blogPosts.map((post, index) => (
-          <FadeInSection key={index} delay={index * 0.5}>
+        {posts.map(({ id, title, description, postDate, slug }, index) => (
+          <FadeInSection key={id} delay={index * 0.5}>
             <div className='my-10 flex flex-col md:flex-row items-start'>
               <div className='flex flex-row items-center w-2/3 mb-4 md:mb-0'>
                 <p className='text-crimson uppercase tracking-widest'>
-                  {post.date}
+                  {postDate}
                 </p>
                 <hr className='hidden md:block w-1/3 mx-4 border border-spacing-4 border-crimson' />
               </div>
 
               <div className='md:w-full flex items-start flex-col'>
-                <h3 className={`${titleFont.className}`}>{post.title}</h3>
-                <p className='pt-4'>{post.description}</p>
+                <Link
+                  href={`/blog/${slug}`}
+                  className='hover:text-crimson transition-all duration-300 ease-in-out'
+                >
+                  <h3 className={`${titleFont.className}`}>{title}</h3>
+                </Link>
+                <p className='pt-4'>{description}</p>
               </div>
             </div>
-            {index !== blogPosts.length - 1 && (
-              <hr className='my-8 opacity-30' />
-            )}
+            {index !== posts.length - 1 && <hr className='my-8 opacity-30' />}
           </FadeInSection>
         ))}
       </div>

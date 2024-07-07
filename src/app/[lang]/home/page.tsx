@@ -1,5 +1,6 @@
 import { About, Blog, Experience, Intro, Projects } from '@/components';
 import { getDictionary } from '../dictionaries';
+import { getAllPosts } from '@/actions';
 
 import { Locale } from '@/interfaces';
 
@@ -8,9 +9,10 @@ interface Props {
 }
 
 export default async function Home({ params }: Props) {
-  const { intro, experience, header, projects, about } = await getDictionary(
-    params.lang
-  );
+  const { intro, experience, header, projects, about, writing } =
+    await getDictionary(params.lang);
+
+  const posts = await getAllPosts(params.lang);
 
   return (
     <>
@@ -39,7 +41,7 @@ export default async function Home({ params }: Props) {
         id={header.writing.href}
         className='responsive-section py-24 md:py-32'
       >
-        <Blog />
+        <Blog posts={posts} translations={writing} />
       </section>
     </>
   );

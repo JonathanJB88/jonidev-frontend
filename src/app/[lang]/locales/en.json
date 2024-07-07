@@ -148,5 +148,9 @@
       "As a passionate Frontend Developer, I specialize in building high-performance, user-centric web applications using cutting-edge technologies like React, TypeScript, Next.js, and GraphQL. My current role at Izertis involves leading innovative projects for top-tier clients, focusing on creating robust, scalable solutions that enhance user experience and optimize SEO. My expertise also includes managing complex server-side integrations and ensuring code excellence through comprehensive testing.",
       "Beyond my technical skills, I bring a unique blend of educational background and cultural appreciation. Fluent in English, Spanish, and Italian, I have a deep love for languages, cultural exchange, and discovering new places. In my free time, I enjoy cooking and exploring nature. This blend of professional expertise and personal passion drives me to continuously innovate and deliver exceptional web solutions."
     ]
+  },
+  "writing": {
+    "title": " My writing",
+    "description": "Welcome to my blog, where I delve into the world of frontend development, exploring the latest trends and technologies in React, Next.js, and TypeScript. Here, you'll find insights on agile methodologies, cloud environments, and best practices for creating high-performance web applications. Subscribe to the RSS feed to stay updated, and feel free to connect with me on LinkedIn if you’d like to discuss any of the topics in depth. Let's innovate together!"
   }
 }
