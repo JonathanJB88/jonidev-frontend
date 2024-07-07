@@ -47,7 +47,7 @@ export const useActiveSection = (href: string, offset = 0) => {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [href, offset, isActive]);
+  }, [href, offset, isActive, router]);
 
   return isActive;
 };

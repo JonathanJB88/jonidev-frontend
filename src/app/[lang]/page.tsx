@@ -5,6 +5,6 @@ interface Props {
   params: Record<'lang', Locale>;
 }
 
-export default function Page({ params }: Props) {
+export default function Intro({ params }: Props) {
   return redirect(`${params.lang}/home`);
 }

@@ -1,10 +1,9 @@
 import { About, Blog, Experience, Intro, Projects } from '@/components';
 import { getDictionary } from '../dictionaries';
 
-import type { Locale } from '@/interfaces';
+import { Locale } from '@/interfaces';
 
 interface Props {
-  children: React.ReactNode;
   params: Record<'lang', Locale>;
 }
 
