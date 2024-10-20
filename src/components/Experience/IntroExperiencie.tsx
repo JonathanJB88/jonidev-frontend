@@ -21,7 +21,7 @@ export const IntroExperiencie = ({ translations }: Props) => {
         </h2>
         <p className='mb-10'>{translations.description}</p>
       </FadeInSection>
-      <FadeInSection delay={0.5}>
+      <FadeInSection delay={0.2}>
         <a
           href='/assets/jonathan_bracho_frontend_developer.pdf'
           download

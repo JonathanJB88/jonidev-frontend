@@ -151,6 +151,7 @@
   },
   "writing": {
     "title": "Mis publicaciones",
-    "description": "Bienvenido/a a mi blog, donde exploro el mundo del desarrollo frontend, analizando las últimas tendencias y tecnologías en React, Next.js y TypeScript. Aquí encontrarás ideas sobre metodologías ágiles, entornos en la nube y mejores prácticas para crear aplicaciones web de alto rendimiento. Suscríbete al feed en redes sociales para mantenerte al día y no dudes en conectarte conmigo en LinkedIn si deseas discutir más a fondo sobre cualquiera de los temas. ¡Innovemos juntos!"
+    "description": "Bienvenido/a a mi blog, donde exploro el mundo del desarrollo frontend, analizando las últimas tendencias y tecnologías en React, Next.js y TypeScript. Aquí encontrarás ideas sobre metodologías ágiles, entornos en la nube y mejores prácticas para crear aplicaciones web de alto rendimiento. Suscríbete al feed en redes sociales para mantenerte al día y no dudes en conectarte conmigo en LinkedIn si deseas discutir más a fondo sobre cualquiera de los temas. ¡Innovemos juntos!",
+    "baseRoute": "es/publicaciones"
   }
 }

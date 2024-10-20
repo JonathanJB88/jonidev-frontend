@@ -13,7 +13,7 @@ export const MobileGrid = ({ projects, translations }: Props) => {
         <IntroProjects translations={translations} />
         <div className='grid w-full gap-6'>
           {projects.map((project, index) => (
-            <FadeInSection key={index} delay={index * 0.5}>
+            <FadeInSection key={index} delay={index * 0.2}>
               <ProjectGridCard key={index} project={project} />
             </FadeInSection>
           ))}

@@ -15,7 +15,7 @@ export const ExperienceContent = ({ translations }: Props) => {
           <div className='border-2-2 border-crimson absolute h-full border right-[50%] border-spacing-[2px] rounded-[1%]'></div>
 
           {contentExperience.map((item, index) => (
-            <FadeInSection key={index} delay={index * 0.5}>
+            <FadeInSection key={index} delay={index * 0.2}>
               <TimelineItem item={item} isReversed={index % 2 === 0} />
             </FadeInSection>
           ))}

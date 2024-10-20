@@ -8,21 +8,34 @@ interface Props {
   delay?: number;
 }
 
-export const FadeInSection = ({ children, delay = 0 }: Props) => {
+export const FadeInSection = ({ children, delay = 0.1 }: Props) => {
+  const variants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: 'easeInOut', delay },
+    },
+  };
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasAnimated.current) {
           controls.start('visible');
-        } else {
-          controls.start('hidden');
+          hasAnimated.current = true;
+          observer.unobserve(entry.target);
         }
       },
       {
-        threshold: 0.65,
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0,
       }
     );
 
@@ -35,23 +48,12 @@ export const FadeInSection = ({ children, delay = 0 }: Props) => {
     };
   }, [controls]);
 
-  const variants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.5, ease: 'easeInOut' },
-    },
-  };
-
   return (
     <motion.div
       ref={sectionRef}
       initial='hidden'
       animate={controls}
       variants={variants}
-      transition={{ delay }}
     >
       {children}
     </motion.div>

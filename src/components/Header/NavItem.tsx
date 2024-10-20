@@ -15,8 +15,8 @@ interface Props {
 }
 
 export const NavItem = ({ node, href, mobileHidden = false }: Props) => {
-  const isActive = useActiveSection(href);
   const router = useRouter();
+  const isActive = useActiveSection(href);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (href.startsWith('mailto:')) return;

@@ -21,7 +21,7 @@ export const About = ({ translations }: Props) => {
         </div>
       </FadeInSection>
 
-      <FadeInSection delay={0.5}>
+      <FadeInSection delay={0.2}>
         <div className='flex flex-col md:flex-row justify-center items-center pt-12 md:pt-24 w-full'>
           <div className='md:w-1/2 flex justify-center items-center md:hidden'>
             <Image
@@ -50,7 +50,7 @@ export const About = ({ translations }: Props) => {
       </FadeInSection>
 
       <div className='w-full pt-28 md:pt-24'>
-        <FadeInSection delay={1}>
+        <FadeInSection delay={0.3}>
           <SliderSkills skills={skills} />
         </FadeInSection>
       </div>

@@ -19,6 +19,7 @@ export const IntroCtaLinks = ({
     <a
       href={href}
       aria-label={ariaLabel}
+      target='_blank'
       rel='noopener noreferrer'
       className={`px-6 py-2 transition-all ${classname}`}
     >

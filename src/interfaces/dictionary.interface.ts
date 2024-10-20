@@ -63,6 +63,7 @@ export interface AboutTranslations {
 export interface WritingTranslations {
   title: string;
   description: string;
+  baseRoute: string;
 }
 
 export type JSONValue =

@@ -1,6 +1,6 @@
 import { titleFont } from '@/config';
 import { FadeInSection } from '@/components';
-import { Post, WritingTranslations } from '@/interfaces';
+import { Locale, Post, WritingTranslations } from '@/interfaces';
 import Link from 'next/link';
 
 interface Props {
@@ -33,7 +33,7 @@ export const Blog = ({ posts, translations }: Props) => {
 
       <div className='pt-8 md:pt-20'>
         {posts.map(({ id, title, description, postDate, slug }, index) => (
-          <FadeInSection key={id} delay={index * 0.5}>
+          <FadeInSection key={id} delay={index * 0.2}>
             <div className='my-10 flex flex-col md:flex-row items-start'>
               <div className='flex flex-row items-center w-2/3 mb-4 md:mb-0'>
                 <p className='text-crimson uppercase tracking-widest'>
@@ -44,7 +44,10 @@ export const Blog = ({ posts, translations }: Props) => {
 
               <div className='md:w-full flex items-start flex-col'>
                 <Link
-                  href={`/blog/${slug}`}
+                  href={`/${translations.baseRoute}/${slug}`}
+                  locale={false}
+                  aria-label={slug}
+                  scroll={false}
                   className='hover:text-crimson transition-all duration-300 ease-in-out'
                 >
                   <h3 className={`${titleFont.className}`}>{title}</h3>

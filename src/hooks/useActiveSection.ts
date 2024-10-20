@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export const useActiveSection = (href: string, offset = 0) => {
   const [isActive, setIsActive] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname.includes('writing') || pathname.includes('publicaciones'))
+      return;
     const handleScroll = () => {
       if (href.includes('mailto:')) return;
       const scroll = window.scrollY;
@@ -47,7 +50,7 @@ export const useActiveSection = (href: string, offset = 0) => {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [href, offset, isActive, router]);
+  }, [href, offset]);
 
   return isActive;
 };

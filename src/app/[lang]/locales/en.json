@@ -151,6 +151,7 @@
   },
   "writing": {
     "title": " My writing",
-    "description": "Welcome to my blog, where I delve into the world of frontend development, exploring the latest trends and technologies in React, Next.js, and TypeScript. Here, you'll find insights on agile methodologies, cloud environments, and best practices for creating high-performance web applications. Subscribe to the RSS feed to stay updated, and feel free to connect with me on LinkedIn if you’d like to discuss any of the topics in depth. Let's innovate together!"
+    "description": "Welcome to my blog, where I delve into the world of frontend development, exploring the latest trends and technologies in React, Next.js, and TypeScript. Here, you'll find insights on agile methodologies, cloud environments, and best practices for creating high-performance web applications. Subscribe to the RSS feed to stay updated, and feel free to connect with me on LinkedIn if you’d like to discuss any of the topics in depth. Let's innovate together!",
+    "baseRoute": "en/writing"
   }
 }
