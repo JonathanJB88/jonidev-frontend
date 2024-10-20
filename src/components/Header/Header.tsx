@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { LangSwitcher, NavItem } from '@/components';
-import type { HeaderTranslations, Locale } from '@/interfaces';
+import { HeaderNav, LangSwitcher } from '@/components';
+import type { HeaderOptions, HeaderTranslations, Locale } from '@/interfaces';
 
 interface Props {
   translations: HeaderTranslations;
@@ -9,7 +9,10 @@ interface Props {
 
 const baseUrl = process.env.baseUrl;
 
-const getMenuItems = (trans: HeaderTranslations, locale: Locale) => [
+const getMenuItems = (
+  trans: HeaderTranslations,
+  locale: Locale
+): HeaderOptions[] => [
   {
     node: (
       <Image
@@ -49,17 +52,7 @@ export const Header = ({ translations, locale }: Props) => {
 
   return (
     <header className='flex items-center justify-between p-4 w-full fixed top-0 z-10 text-softwhite'>
-      <nav className='flex mx-auto justify-center items-center overflow-hidden'>
-        {menuItems.map(({ node, href, mobileHidden }) => (
-          <NavItem
-            key={href}
-            node={node}
-            href={href}
-            mobileHidden={mobileHidden}
-          />
-        ))}
-      </nav>
-
+      <HeaderNav menuItems={menuItems} />
       <LangSwitcher currentLocale={locale} />
     </header>
   );

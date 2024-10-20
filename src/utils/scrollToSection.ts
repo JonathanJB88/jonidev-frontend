@@ -1,5 +1,5 @@
 export const scrollTo = (top = 0) => {
-  window.scrollTo({
+  window?.scrollTo({
     top,
     behavior: 'smooth',
   });

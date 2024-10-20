@@ -5,34 +5,44 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { subtitleFont } from '@/config';
-import { useActiveSection } from '@/hooks';
 import { scrollTo } from '@/utils';
 
 interface Props {
   node: string | ReactNode;
   href: string;
+  isActive: boolean;
   mobileHidden?: boolean;
 }
 
-export const NavItem = ({ node, href, mobileHidden = false }: Props) => {
+export const NavItem = ({
+  node,
+  href,
+  isActive,
+  mobileHidden = false,
+}: Props) => {
   const router = useRouter();
-  const isActive = useActiveSection(href);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (href.startsWith('mailto:')) return;
-    e.preventDefault();
     const isInitSection = href.endsWith('#');
-    const selector = href.split('#').pop()!;
+    const [route, selector] = href.split('#');
 
-    const section = isInitSection
-      ? document.body
-      : (document.querySelector(`#${selector}`) as HTMLElement);
+    const currentPath = window?.location.pathname;
+    const isSamePage = currentPath === route;
 
-    if (section) {
-      const top = section.offsetTop;
-      scrollTo(top);
+    if (isSamePage) {
+      e.preventDefault();
 
-      router.push(href, { scroll: false });
+      const section = isInitSection
+        ? document.body
+        : (document.querySelector(`#${selector}`) as HTMLElement);
+
+      if (section) {
+        const top = section.offsetTop;
+        scrollTo(top);
+
+        router.push(href, { scroll: false });
+      }
     }
   };
 

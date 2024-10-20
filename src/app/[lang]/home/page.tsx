@@ -1,4 +1,11 @@
-import { About, Blog, Experience, Intro, Projects } from '@/components';
+import {
+  About,
+  Blog,
+  Experience,
+  Intro,
+  Projects,
+  WrapperScroll,
+} from '@/components';
 import { getDictionary } from '../dictionaries';
 import { getAllPosts } from '@/actions';
 
@@ -15,7 +22,7 @@ export default async function Home({ params }: Props) {
   const posts = await getAllPosts(params.lang);
 
   return (
-    <>
+    <WrapperScroll>
       <section id='#' className='responsive-section'>
         <Intro translations={intro} />
       </section>
@@ -43,6 +50,6 @@ export default async function Home({ params }: Props) {
       >
         <Blog posts={posts} translations={writing} />
       </section>
-    </>
+    </WrapperScroll>
   );
 }

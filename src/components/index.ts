@@ -1,6 +1,7 @@
 export * from './Header/Header';
 export * from './Header/NavItem';
 export * from './Header/LangSwitcher';
+export * from './Header/HeaderNav';
 
 export * from './Intro/Intro';
 export * from './Intro/ProfilePicture';
@@ -30,3 +31,4 @@ export * from './ui/SocialMedia';
 export * from './ui/HeroParallax';
 export * from './ui/MobileGrid';
 export * from './ui/SliderSkills';
+export * from './ui/WrapperScroll';

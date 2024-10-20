@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import { titleFont } from '@/config';
 import { FadeInSection } from '@/components';
-import { Locale, Post, WritingTranslations } from '@/interfaces';
-import Link from 'next/link';
+import { Post, WritingTranslations } from '@/interfaces';
 
 interface Props {
   posts: Post[];

@@ -17,7 +17,7 @@ export const LangSwitcher = ({ currentLocale }: Props) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const newLocale = e.target.value as Locale;
-    const hashSection = window.location.hash;
+    const hashSection = window?.location.hash;
     const isHashSectionEmpty = hashSection === '';
     const newPath = pathname.replace(currentLocale, newLocale);
     const newUrl = !isHashSectionEmpty ? `${newPath}${hashSection}` : newPath;
