@@ -12,6 +12,8 @@ interface Props {
 export default async function PostDetail({ params }: Props) {
   const { lang, route, slug } = params;
 
+  // Testing commits
+
   const post = await getPostDetail(slug, lang);
 
   return (
