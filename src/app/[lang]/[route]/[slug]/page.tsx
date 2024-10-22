@@ -1,3 +1,6 @@
+import { getPostDetail } from '@/actions';
+import { Locale } from '@/interfaces';
+
 interface Props {
   params: {
     lang: Locale;
@@ -6,12 +9,18 @@ interface Props {
   };
 }
 
-export default function PostDetail({ params }: Props) {
+export default async function PostDetail({ params }: Props) {
   const { lang, route, slug } = params;
 
+  const post = await getPostDetail(slug, lang);
+
   return (
-    <div>
-      <h1>Post Detail</h1>
-    </div>
+    <article>
+      <div className='my-80 mx-20'>
+        <pre>
+          <code>{JSON.stringify(post, null, 2)}</code>
+        </pre>
+      </div>
+    </article>
   );
 }

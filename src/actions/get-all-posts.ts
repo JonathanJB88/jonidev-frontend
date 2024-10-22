@@ -10,7 +10,8 @@ export const getAllPosts = async (lang: Locale): Promise<Post[]> => {
     {},
     {
       next: {
-        revalidate: 3600 * 24 * 7, // Every week
+        // revalidate: 3600 * 24 * 7, // Every week
+        revalidate: 1, // Every second
       },
     }
   );
