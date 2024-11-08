@@ -1,5 +1,6 @@
 import { getPostDetail } from '@/actions';
 import { Locale } from '@/interfaces';
+import { redirect } from 'next/navigation';
 
 interface Props {
   params: {
@@ -11,9 +12,12 @@ interface Props {
 
 export default async function PostDetail({ params }: Props) {
   const { lang, route, slug } = params;
-  // Testing commits
+
+  if (route !== 'writing' && route !== 'publicaciones') redirect('/home');
 
   const post = await getPostDetail(slug, lang);
+
+  if (!post) redirect('/home');
 
   return (
     <article>

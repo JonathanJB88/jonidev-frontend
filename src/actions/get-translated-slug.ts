@@ -1,15 +1,15 @@
 'use server';
 
-import { postAdapter, sanityClient } from '@/utils';
+import { sanityClient } from '@/utils';
 import { postBySlugQuery } from '@/queries';
-import { Locale, Post, PostResponse } from '@/interfaces';
+import { Locale, PostResponse } from '@/interfaces';
 
 export const getTranslatedSlug = async (
   currentLang: Locale,
   newLang: Locale,
   slug: string
-) => {
-  const postSlug = await sanityClient.fetch(
+): Promise<string> => {
+  const postSlug = await sanityClient.fetch<Partial<PostResponse>>(
     postBySlugQuery,
     { slug, lang: currentLang },
     {
@@ -20,5 +20,5 @@ export const getTranslatedSlug = async (
     }
   );
 
-  return postSlug.slug[newLang].current;
+  return postSlug?.slug?.[newLang]?.current || '';
 };

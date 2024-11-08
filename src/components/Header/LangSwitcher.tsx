@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { redirect, usePathname, useRouter } from 'next/navigation';
 import { getTranslatedSlug } from '@/actions';
 import type { Locale } from '@/interfaces';
 
@@ -10,12 +10,14 @@ const translations: Record<Locale, Record<string, string>> = {
     '#projects': '#proyectos',
     '#about': '#sobre-mi',
     '#writing': '#blog',
+    writing: 'publicaciones',
   },
   en: {
     '#experiencia': '#experience',
     '#proyectos': '#projects',
     '#sobre-mi': '#about',
     '#blog': '#writing',
+    publicaciones: 'writing',
   },
 };
 
@@ -26,7 +28,9 @@ const translateHash = (hash: string, locale: Locale): string => {
 export const LangSwitcher = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const [currentLocale, path, slug] = pathname.split('/').filter(Boolean);
+  const [currentLocale, currentPath, slug] = pathname
+    .split('/')
+    .filter(Boolean);
 
   const onSwitch = async (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -39,9 +43,13 @@ export const LangSwitcher = () => {
         newLocale,
         slug
       );
-      return router.push(`/${newLocale}/${path}/${translatedSlug}`, {
-        scroll: false,
-      });
+      if (!translatedSlug) redirect('/home');
+      return router.push(
+        `/${newLocale}/${translateHash(currentPath, newLocale)}/${translatedSlug}`,
+        {
+          scroll: false,
+        }
+      );
     }
 
     const newPath = pathname.replace(currentLocale, newLocale);
