@@ -1,40 +1,65 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import { debounce } from 'lodash';
+import { usePathname } from 'next/navigation';
+import type { HeaderOptions } from '@/interfaces';
 
-export const useActiveSection = (sectionIds: string[]) => {
+export const useActiveSection = (menuItems: HeaderOptions[]) => {
   const [activeSection, setActiveSection] = useState<string>('');
-  const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentId =
-        sectionIds.find((id) => {
-          const section = document.getElementById(id);
-          if (!section) return false;
-
-          const { top, bottom } = section.getBoundingClientRect();
-          return top <= 0 && bottom > 0;
-        }) || '';
-
-      if (currentId !== activeSection) {
-        setActiveSection(currentId);
-        router.replace(`${pathname}#${currentId}`, { scroll: false });
-      } else if (currentId === '' && activeSection !== '') {
-        setActiveSection('');
-        router.replace(pathname, { scroll: false });
-      }
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0,
     };
 
-    const debouncedHandleScroll = debounce(handleScroll, 25);
+    const observerCallback: IntersectionObserverCallback = (
+      entries: IntersectionObserverEntry[]
+    ) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (id) {
+            setActiveSection(id === '#' ? id : `#${id}`);
+          } else {
+            // Handle first section without id
+            setActiveSection('');
+          }
+        }
+      });
+    };
 
-    window?.addEventListener('scroll', debouncedHandleScroll);
-    handleScroll();
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Get all section elements in order
+    const sectionElements: Element[] = [];
+
+    menuItems.forEach((item) => {
+      const sectionId = item.href.split('#')[1];
+      let element: Element | null = null;
+
+      if (sectionId) {
+        element = document.getElementById(sectionId);
+      } else {
+        // Handle first section without id
+        element = document.querySelector('section');
+      }
+
+      if (element) {
+        observer.observe(element);
+        sectionElements.push(element);
+      }
+    });
 
     return () => {
-      window?.removeEventListener('scroll', debouncedHandleScroll);
+      sectionElements.forEach((element) => {
+        observer.unobserve(element);
+      });
+      observer.disconnect();
     };
   }, [pathname]);
 

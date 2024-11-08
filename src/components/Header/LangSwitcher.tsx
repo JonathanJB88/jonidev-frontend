@@ -9,6 +9,25 @@ interface Props {
   currentLocale: Locale;
 }
 
+const translations: Record<Locale, Record<string, string>> = {
+  es: {
+    '#experience': '#experiencia',
+    '#projects': '#proyectos',
+    '#about': '#sobre-mi',
+    '#writing': '#blog',
+  },
+  en: {
+    '#experiencia': '#experience',
+    '#proyectos': '#projects',
+    '#sobre-mi': '#about',
+    '#blog': '#writing',
+  },
+};
+
+const translateHash = (hash: string, locale: Locale): string => {
+  return translations[locale][hash] || hash;
+};
+
 export const LangSwitcher = ({ currentLocale }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -17,20 +36,13 @@ export const LangSwitcher = ({ currentLocale }: Props) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const newLocale = e.target.value as Locale;
-    const hashSection = window?.location.hash;
-    const isHashSectionEmpty = hashSection === '';
     const newPath = pathname.replace(currentLocale, newLocale);
-    const newUrl = !isHashSectionEmpty ? `${newPath}${hashSection}` : newPath;
+    const hashSection = window?.location.hash;
 
-    const section = isHashSectionEmpty
-      ? document.body
-      : (document.querySelector(hashSection) as HTMLElement);
+    const translatedHash = translateHash(hashSection, newLocale);
+    const newUrl = translatedHash ? `${newPath}${translatedHash}` : newPath;
 
-    if (section) {
-      const top = section.offsetTop;
-      scrollTo(top);
-      router.push(newUrl, { scroll: false });
-    }
+    router.push(newUrl, { scroll: true });
   };
 
   return (

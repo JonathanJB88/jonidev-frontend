@@ -33,7 +33,10 @@ export const Intro = ({ translations }: Props) => {
   const ctaLinks = getCtaLinks(translations.cta);
 
   return (
-    <AuroraBackground className='h-screen w-screen' style={{ opacity }}>
+    <AuroraBackground
+      className='h-screen w-screen mt-[-96px] md:mt-[-128px]'
+      style={{ opacity }}
+    >
       <div className='responsive-section'>
         <FadeInSection>
           <div className='flex justify-center items-end mb-8'>
