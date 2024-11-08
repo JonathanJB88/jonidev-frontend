@@ -49,7 +49,7 @@ export const HeroParallax = ({ projects, translations }: Props) => {
   return (
     <div
       ref={ref}
-      className='h-[200vh] overflow-hidden hidden antialiased relative md:flex flex-col self-auto [perspective:800px] [transform-style:preserve-3d]'
+      className='h-[200vh] overflow-hidden hidden antialiased relative md:flex flex-col self-auto [perspective:800px] [transform-style:preserve-3d] md:mt-[-128px]'
     >
       <IntroProjects translations={translations} />
       <motion.div

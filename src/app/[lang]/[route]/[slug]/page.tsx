@@ -20,12 +20,8 @@ export default async function PostDetail({ params }: Props) {
   if (!post) redirect('/home');
 
   return (
-    <article>
-      <div className='my-80 mx-20'>
-        <pre>
-          <code>{JSON.stringify(post, null, 2)}</code>
-        </pre>
-      </div>
+    <article className='responsive-section'>
+      <h1>{post.title}</h1>
     </article>
   );
 }

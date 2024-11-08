@@ -52,5 +52,6 @@ body {
     @apply lg:max-w-[1024px];
     @apply xl:max-w-[1024px];
     @apply 2xl:max-w-[1280px];
+    min-height: 100dvh;
   }
 }
