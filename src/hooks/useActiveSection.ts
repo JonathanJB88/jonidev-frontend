@@ -4,15 +4,41 @@ import { usePathname } from 'next/navigation';
 import type { HeaderOptions } from '@/interfaces';
 
 export const useActiveSection = (menuItems: HeaderOptions[]) => {
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
+    const sectionElements: Element[] = [];
+
+    menuItems.forEach((item) => {
+      const sectionId = item.href.split('#')[1];
+      let element: Element | null = null;
+
+      if (sectionId) {
+        element = document.getElementById(sectionId);
+      } else {
+        // Handle the first section without an id
+        element = document.querySelector('section');
+      }
+
+      if (element) {
+        sectionElements.push(element);
+      }
+    });
+
+    // If no sections are found, reset activeSection and exit early
+    if (sectionElements.length === 0) {
+      setActiveSection(null);
+      return;
+    }
+
     const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: '-50% 0px -50% 0px',
       threshold: 0,
     };
+
+    let currentActiveSection = '';
 
     const observerCallback: IntersectionObserverCallback = (
       entries: IntersectionObserverEntry[]
@@ -20,11 +46,10 @@ export const useActiveSection = (menuItems: HeaderOptions[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          if (id) {
-            setActiveSection(id === '#' ? id : `#${id}`);
-          } else {
-            // Handle first section without id
-            setActiveSection('');
+          const newActiveSection = id ? (id === '#' ? id : `#${id}`) : '';
+          if (currentActiveSection !== newActiveSection) {
+            currentActiveSection = newActiveSection;
+            setActiveSection(newActiveSection);
           }
         }
       });
@@ -35,24 +60,9 @@ export const useActiveSection = (menuItems: HeaderOptions[]) => {
       observerOptions
     );
 
-    // Get all section elements in order
-    const sectionElements: Element[] = [];
-
-    menuItems.forEach((item) => {
-      const sectionId = item.href.split('#')[1];
-      let element: Element | null = null;
-
-      if (sectionId) {
-        element = document.getElementById(sectionId);
-      } else {
-        // Handle first section without id
-        element = document.querySelector('section');
-      }
-
-      if (element) {
-        observer.observe(element);
-        sectionElements.push(element);
-      }
+    // Observe the section elements
+    sectionElements.forEach((element) => {
+      observer.observe(element);
     });
 
     return () => {

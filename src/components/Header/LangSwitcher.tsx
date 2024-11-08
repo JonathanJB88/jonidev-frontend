@@ -1,13 +1,8 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { scrollTo } from '@/utils';
-
+import { getTranslatedSlug } from '@/actions';
 import type { Locale } from '@/interfaces';
-
-interface Props {
-  currentLocale: Locale;
-}
 
 const translations: Record<Locale, Record<string, string>> = {
   es: {
@@ -28,14 +23,27 @@ const translateHash = (hash: string, locale: Locale): string => {
   return translations[locale][hash] || hash;
 };
 
-export const LangSwitcher = ({ currentLocale }: Props) => {
+export const LangSwitcher = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const [currentLocale, path, slug] = pathname.split('/').filter(Boolean);
 
-  const onSwitch = (
+  const onSwitch = async (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const newLocale = e.target.value as Locale;
+
+    if (pathname.includes('publicaciones') || pathname.includes('writing')) {
+      const translatedSlug = await getTranslatedSlug(
+        currentLocale as Locale,
+        newLocale,
+        slug
+      );
+      return router.push(`/${newLocale}/${path}/${translatedSlug}`, {
+        scroll: false,
+      });
+    }
+
     const newPath = pathname.replace(currentLocale, newLocale);
     const hashSection = window?.location.hash;
 

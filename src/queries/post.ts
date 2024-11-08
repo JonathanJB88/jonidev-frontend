@@ -20,3 +20,9 @@ export const postDetailQuery = `
   "tags": tags[]->title,
  body
 }`;
+
+export const postBySlugQuery = `
+*[_type == "post" && slug[$lang].current == $slug][0]{
+  _id,
+  slug,
+}`;
