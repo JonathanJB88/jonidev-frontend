@@ -11,7 +11,7 @@ export const HeaderNav = ({ menuItems }: Props) => {
   const activeSection = useActiveSection(menuItems);
 
   return (
-    <nav className='flex mx-auto justify-center items-center overflow-hidden'>
+    <nav className='flex justify-left items-center overflow-hidden'>
       {menuItems.map(({ node, href, mobileHidden }) => {
         const section = href.split('#')[1] || '#';
         const isActive = `#${section}` === activeSection;

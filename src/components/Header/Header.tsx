@@ -53,7 +53,7 @@ export const Header = ({ translations, locale }: Props) => {
   return (
     <header className='flex items-center justify-between p-4 w-full fixed top-0 z-10 text-softwhite'>
       <HeaderNav menuItems={menuItems} />
-      <LangSwitcher currentLocale={locale} />
+      <LangSwitcher />
     </header>
   );
 };

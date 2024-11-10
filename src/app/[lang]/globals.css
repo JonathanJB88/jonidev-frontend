@@ -46,7 +46,7 @@ body {
   }
   .responsive-section {
     @apply flex flex-col items-center justify-center relative;
-    @apply px-4 mx-auto w-full py-24 md:py-32;
+    @apply px-8 mx-auto w-full py-[7.5rem] md:py-32;
     @apply sm:max-w-[640px];
     @apply md:max-w-[769px];
     @apply lg:max-w-[1024px];

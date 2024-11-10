@@ -49,7 +49,7 @@ export const About = ({ translations }: Props) => {
         </div>
       </FadeInSection>
 
-      <div className='w-full pt-28 md:pt-24'>
+      <div className='w-full pt-12 md:pt-24'>
         <FadeInSection delay={0.3}>
           <SliderSkills skills={skills} />
         </FadeInSection>

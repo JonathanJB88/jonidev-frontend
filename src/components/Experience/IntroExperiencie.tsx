@@ -9,7 +9,7 @@ interface Props {
 
 export const IntroExperiencie = ({ translations }: Props) => {
   return (
-    <div className='flex flex-col w-full lg:w-1/3 mt-4'>
+    <div className='flex flex-col w-full lg:w-1/3'>
       <FadeInSection>
         <h1
           className={`text-crimson text-body-xs md:text-body-md uppercase tracking-widest ${titleFont.className}`}
