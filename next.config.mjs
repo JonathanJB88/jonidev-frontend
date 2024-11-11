@@ -7,6 +7,14 @@ const nextConfig = {
     sanityApiToken: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
     sanityApiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
