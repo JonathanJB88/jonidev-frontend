@@ -17,6 +17,7 @@
     "lodash": "^4.17.21",
     "next": "14.2.4",
     "next-sanity": "^9.4.2",
+    "openai": "^4.72.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",

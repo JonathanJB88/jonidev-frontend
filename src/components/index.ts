@@ -32,3 +32,5 @@ export * from './ui/HeroParallax';
 export * from './ui/MobileGrid';
 export * from './ui/SliderSkills';
 export * from './ui/WrapperScroll';
+
+export * from './Assistant/Assistant';
