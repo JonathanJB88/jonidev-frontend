@@ -34,3 +34,4 @@ export * from './ui/SliderSkills';
 export * from './ui/WrapperScroll';
 
 export * from './Assistant/Assistant';
+export * from './Assistant/BotAssistant';

@@ -42,7 +42,8 @@
         "text": "LinkedIn",
         "ariaLabel": "LinkedIn Profile"
       }
-    ]
+    ],
+    "bot": "Get more information about my profile."
   },
   "experience": {
     "title": "Working Process",

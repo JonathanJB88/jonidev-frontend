@@ -38,6 +38,7 @@ export interface IntroTranslations {
   subtitle: string;
   description: string;
   cta: CtaItem[];
+  bot: string;
 }
 
 export interface ExperienceTranslations {
