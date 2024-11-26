@@ -36,7 +36,7 @@ export const Intro = ({ translations }: Props) => {
   return (
     <>
       <AuroraBackground
-        className='h-screen w-screen mt-[-96px] md:mt-[-128px]'
+        className='h-screen w-screen mt-[-120px] md:mt-[-128px]'
         style={{ opacity, transition: 'opacity 0.3s ease-in-out' }}
       >
         <div className='responsive-section'>

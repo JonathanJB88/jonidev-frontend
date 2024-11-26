@@ -39,9 +39,6 @@ export default async function Home({ params }: Props) {
       <section id={header.writing.href} className='responsive-section'>
         <Blog posts={posts} translations={writing} />
       </section>
-      <section id='assistant' className='responsive-section'>
-        <Assistant />
-      </section>
     </WrapperScroll>
   );
 }

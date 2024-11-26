@@ -24,10 +24,6 @@ export const getAssistantResponse = async (
       ],
     });
 
-    console.log(
-      '🚀 ~ completion.choices[0].message:',
-      completion.choices[0].message.content
-    );
     return completion.choices[0].message.content as string;
   } catch (error) {
     console.error('Error fetching response from OpenAI:', error);

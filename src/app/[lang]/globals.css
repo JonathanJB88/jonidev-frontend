@@ -81,3 +81,13 @@ body {
 .fade-out {
   animation: fadeOut 0.5s forwards;
 }
+
+.chat-window {
+  max-height: 23dvh;
+}
+
+@media (min-width: 768px) {
+  .chat-window {
+    max-height: 32dvh;
+  }
+}

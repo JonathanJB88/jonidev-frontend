@@ -43,7 +43,15 @@
         "ariaLabel": "LinkedIn Profile"
       }
     ],
-    "bot": "Get more information about my profile."
+    "bot": {
+      "title": "Jonathan's Virtual Assistant",
+      "cta": "Get more information about my profile.",
+      "closeAriaLabel": "Close assistant",
+      "name": "Jonathan's Assistant",
+      "firstMessage": "Hi! I’m Jonathan’s assistant. Need help checking if his profile matches your requirements or finding more details?",
+      "inputPlaceholder": "How can I assist you?",
+      "sendButton": "Send"
+    }
   },
   "experience": {
     "title": "Working Process",
