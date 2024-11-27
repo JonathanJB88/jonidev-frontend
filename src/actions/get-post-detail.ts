@@ -7,7 +7,7 @@ import { Locale, PostDetail, PostDetailResponse } from '@/interfaces';
 export const getPostDetail = async (
   slug: string,
   lang: Locale
-): Promise<PostDetail> => {
+): Promise<PostDetail | null> => {
   const postResponse = await sanityClient.fetch<PostDetailResponse>(
     postDetailQuery,
     { slug, lang },
@@ -18,6 +18,8 @@ export const getPostDetail = async (
       },
     }
   );
+
+  if (!postResponse) return null;
 
   const adaptedPost = postDetailAdapter(postResponse, lang);
 

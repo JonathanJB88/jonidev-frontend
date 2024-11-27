@@ -38,6 +38,15 @@ export interface IntroTranslations {
   subtitle: string;
   description: string;
   cta: CtaItem[];
+  bot: {
+    title: string;
+    cta: string;
+    closeAriaLabel: string;
+    name: string;
+    firstMessage: string;
+    inputPlaceholder: string;
+    sendButton: string;
+  };
 }
 
 export interface ExperienceTranslations {

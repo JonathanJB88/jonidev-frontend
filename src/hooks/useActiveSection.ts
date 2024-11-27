@@ -1,40 +1,75 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import { debounce } from 'lodash';
+import { usePathname } from 'next/navigation';
+import type { HeaderOptions } from '@/interfaces';
 
-export const useActiveSection = (sectionIds: string[]) => {
-  const [activeSection, setActiveSection] = useState<string>('');
-  const router = useRouter();
+export const useActiveSection = (menuItems: HeaderOptions[]) => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentId =
-        sectionIds.find((id) => {
-          const section = document.getElementById(id);
-          if (!section) return false;
+    const sectionElements: Element[] = [];
 
-          const { top, bottom } = section.getBoundingClientRect();
-          return top <= 0 && bottom > 0;
-        }) || '';
+    menuItems.forEach((item) => {
+      const sectionId = item.href.split('#')[1];
+      let element: Element | null = null;
 
-      if (currentId !== activeSection) {
-        setActiveSection(currentId);
-        router.replace(`${pathname}#${currentId}`, { scroll: false });
-      } else if (currentId === '' && activeSection !== '') {
-        setActiveSection('');
-        router.replace(pathname, { scroll: false });
+      if (sectionId) {
+        element = document.getElementById(sectionId);
+      } else {
+        // Handle the first section without an id
+        element = document.querySelector('section');
       }
+
+      if (element) {
+        sectionElements.push(element);
+      }
+    });
+
+    // If no sections are found, reset activeSection and exit early
+    if (sectionElements.length === 0) {
+      setActiveSection(null);
+      return;
+    }
+
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0,
     };
 
-    const debouncedHandleScroll = debounce(handleScroll, 25);
+    let currentActiveSection = '';
 
-    window?.addEventListener('scroll', debouncedHandleScroll);
-    handleScroll();
+    const observerCallback: IntersectionObserverCallback = (
+      entries: IntersectionObserverEntry[]
+    ) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          const newActiveSection = id ? (id === '#' ? id : `#${id}`) : '';
+          if (currentActiveSection !== newActiveSection) {
+            currentActiveSection = newActiveSection;
+            setActiveSection(newActiveSection);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Observe the section elements
+    sectionElements.forEach((element) => {
+      observer.observe(element);
+    });
 
     return () => {
-      window?.removeEventListener('scroll', debouncedHandleScroll);
+      sectionElements.forEach((element) => {
+        observer.unobserve(element);
+      });
+      observer.disconnect();
     };
   }, [pathname]);
 

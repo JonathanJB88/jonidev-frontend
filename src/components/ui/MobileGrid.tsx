@@ -11,7 +11,7 @@ export const MobileGrid = ({ projects, translations }: Props) => {
     <div className='relative container flex md:hidden min-h-screen flex-col justify-center overflow-hidden'>
       <div className='max-w-screen-xl w-full'>
         <IntroProjects translations={translations} />
-        <div className='grid w-full gap-6'>
+        <div className='grid w-full gap-6 mt-4'>
           {projects.map((project, index) => (
             <FadeInSection key={index} delay={index * 0.2}>
               <ProjectGridCard key={index} project={project} />

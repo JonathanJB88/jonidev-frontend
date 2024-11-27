@@ -27,7 +27,7 @@ export default async function RootLayout({
       <body className={bodyFont.className}>
         <div className='main-container'>
           <Header translations={header} locale={params.lang} />
-          <main className='flex flex-col'>{children}</main>
+          <main className='flex flex-col relative'>{children}</main>
           <SocialMedia />
           <Footer translations={footer} />
         </div>

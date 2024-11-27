@@ -42,7 +42,16 @@
         "text": "LinkedIn",
         "ariaLabel": "Perfil de LinkedIn"
       }
-    ]
+    ],
+    "bot": {
+      "title": "Asistente Virtual de Jonathan",
+      "cta": "Obtén más información sobre mi perfil.",
+      "closeAriaLabel": "Cerrar asistente",
+      "name": "Asistente",
+      "firstMessage": "Hola, soy el asistente de Jonathan. ¿Necesita ayuda para comprobar si su perfil se ajusta a sus requisitos o para encontrar más detalles?",
+      "inputPlaceholder": "¿En qué puedo ayudarte?",
+      "sendButton": "Enviar"
+    }
   },
   "experience": {
     "title": "Proceso Laboral",

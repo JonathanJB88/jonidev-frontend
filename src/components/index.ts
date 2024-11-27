@@ -32,3 +32,9 @@ export * from './ui/HeroParallax';
 export * from './ui/MobileGrid';
 export * from './ui/SliderSkills';
 export * from './ui/WrapperScroll';
+
+export * from './Assistant/BotAssistant';
+export * from './Assistant/ChatWindow';
+export * from './Assistant/ChatContent';
+export * from './Assistant/ChatMessages';
+export * from './Assistant/AssistantResponse';

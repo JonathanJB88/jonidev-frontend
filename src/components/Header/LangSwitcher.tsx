@@ -1,36 +1,64 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
-import { scrollTo } from '@/utils';
-
+import { redirect, usePathname, useRouter } from 'next/navigation';
+import { getTranslatedSlug } from '@/actions';
 import type { Locale } from '@/interfaces';
 
-interface Props {
-  currentLocale: Locale;
-}
+const translations: Record<Locale, Record<string, string>> = {
+  es: {
+    '#experience': '#experiencia',
+    '#projects': '#proyectos',
+    '#about': '#sobre-mi',
+    '#writing': '#blog',
+    writing: 'publicaciones',
+  },
+  en: {
+    '#experiencia': '#experience',
+    '#proyectos': '#projects',
+    '#sobre-mi': '#about',
+    '#blog': '#writing',
+    publicaciones: 'writing',
+  },
+};
 
-export const LangSwitcher = ({ currentLocale }: Props) => {
+const translateHash = (hash: string, locale: Locale): string => {
+  return translations[locale][hash] || hash;
+};
+
+export const LangSwitcher = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const [currentLocale, currentPath, slug] = pathname
+    .split('/')
+    .filter(Boolean);
 
-  const onSwitch = (
+  const onSwitch = async (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const newLocale = e.target.value as Locale;
-    const hashSection = window?.location.hash;
-    const isHashSectionEmpty = hashSection === '';
-    const newPath = pathname.replace(currentLocale, newLocale);
-    const newUrl = !isHashSectionEmpty ? `${newPath}${hashSection}` : newPath;
 
-    const section = isHashSectionEmpty
-      ? document.body
-      : (document.querySelector(hashSection) as HTMLElement);
-
-    if (section) {
-      const top = section.offsetTop;
-      scrollTo(top);
-      router.push(newUrl, { scroll: false });
+    if (pathname.includes('publicaciones') || pathname.includes('writing')) {
+      const translatedSlug = await getTranslatedSlug(
+        currentLocale as Locale,
+        newLocale,
+        slug
+      );
+      if (!translatedSlug) redirect('/home');
+      return router.push(
+        `/${newLocale}/${translateHash(currentPath, newLocale)}/${translatedSlug}`,
+        {
+          scroll: false,
+        }
+      );
     }
+
+    const newPath = pathname.replace(currentLocale, newLocale);
+    const hashSection = window?.location.hash;
+
+    const translatedHash = translateHash(hashSection, newLocale);
+    const newUrl = translatedHash ? `${newPath}${translatedHash}` : newPath;
+
+    router.push(newUrl, { scroll: true });
   };
 
   return (

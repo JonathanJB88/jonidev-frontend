@@ -34,7 +34,7 @@ export const Blog = ({ posts, translations }: Props) => {
       <div className='pt-8 md:pt-20'>
         {posts.map(({ id, title, description, postDate, slug }, index) => (
           <FadeInSection key={id} delay={index * 0.2}>
-            <div className='my-10 flex flex-col md:flex-row items-start'>
+            <div className='my-7 flex flex-col md:flex-row items-start'>
               <div className='flex flex-row items-center w-2/3 mb-4 md:mb-0'>
                 <p className='text-crimson uppercase tracking-widest'>
                   {postDate}
