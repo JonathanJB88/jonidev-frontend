@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react';
 import { TbMessageChatbot } from 'react-icons/tb';
 import { ChatWindow } from '@/components';
 import { bodyFont } from '@/config';
-import { IntroTranslations } from '@/interfaces';
+import { IntroTranslations, Locale } from '@/interfaces';
 
 interface Props {
   opacity: number;
   translations: IntroTranslations;
+  locale: Locale;
 }
 
-export const BotAssistant = ({ opacity, translations }: Props) => {
+export const BotAssistant = ({ opacity, translations, locale }: Props) => {
   const [showCTA, setShowCTA] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -61,7 +62,11 @@ export const BotAssistant = ({ opacity, translations }: Props) => {
       style={{ opacity, transition: 'opacity 0.1s ease-in-out' }}
     >
       {isChatOpen ? (
-        <ChatWindow onClose={handleChatClose} translations={translations} />
+        <ChatWindow
+          onClose={handleChatClose}
+          translations={translations}
+          locale={locale}
+        />
       ) : (
         <div className='flex flex-col items-end justify-end'>
           {showCTA && (
@@ -73,7 +78,7 @@ export const BotAssistant = ({ opacity, translations }: Props) => {
           )}
           <button
             className='text-silver hover:text-softwhite ml-2'
-            aria-label='Asistente de Bot'
+            aria-label={translations.bot.name}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleButtonClick}

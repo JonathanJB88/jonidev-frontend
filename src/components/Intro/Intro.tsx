@@ -13,17 +13,18 @@ import {
   BotAssistant,
 } from '@/components';
 import { useScrollOpacity } from '@/hooks';
-import { IntroTranslations } from '@/interfaces';
+import { IntroTranslations, Locale } from '@/interfaces';
 
 interface Props {
   translations: IntroTranslations;
+  locale: Locale;
 }
 
 const startYear = 2019;
 const currentYear = new Date().getFullYear();
 const yearsOfExperience = currentYear - startYear;
 
-export const Intro = ({ translations }: Props) => {
+export const Intro = ({ translations, locale }: Props) => {
   const { opacity } = useScrollOpacity();
 
   const description = translations.description.replace(
@@ -73,7 +74,11 @@ export const Intro = ({ translations }: Props) => {
           </FadeInSection>
         </div>
       </AuroraBackground>
-      <BotAssistant opacity={opacity} translations={translations} />
+      <BotAssistant
+        opacity={opacity}
+        translations={translations}
+        locale={locale}
+      />
     </>
   );
 };

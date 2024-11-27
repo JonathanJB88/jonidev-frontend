@@ -5,13 +5,14 @@ import { getAssistantResponse } from '@/actions';
 import { bodyFont } from '@/config';
 import { ChatMessages } from '@/components';
 
-import { IntroTranslations, BotMessage } from '@/interfaces';
+import { IntroTranslations, BotMessage, Locale } from '@/interfaces';
 
 interface Props {
   translations: IntroTranslations;
+  locale: Locale;
 }
 
-export const ChatContent = ({ translations }: Props) => {
+export const ChatContent = ({ translations, locale }: Props) => {
   const [question, setQuestion] = useState('');
   const [messages, setMessages] = useState<BotMessage[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -23,7 +24,7 @@ export const ChatContent = ({ translations }: Props) => {
 
     setQuestion('');
 
-    const assistantResponse = await getAssistantResponse(question);
+    const assistantResponse = await getAssistantResponse(question, locale);
     const assistantMessage: BotMessage = {
       type: 'assistant',
       text: assistantResponse,
@@ -51,11 +52,18 @@ export const ChatContent = ({ translations }: Props) => {
             placeholder={translations.bot.inputPlaceholder}
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            className='flex-1 p-2 text-xs md:text-body-xs bg-charcoal text-softwhite placeholder-silver border-t border-b border-l border-silver focus:outline-none'
+            className={`flex-1 p-2 text-xs md:text-body-xs bg-charcoal
+               text-softwhite placeholder-silver border-t border-b border-l
+                border-silver focus:outline-none
+                ${bodyFont.className}`}
           />
           <button
             type='submit'
-            className='bg-crimson text-softwhite text-body-xs md:text-body-md p-2 border-t border-b border-r border-silver hover:bg-dark-crimson focus:outline-none'
+            className={`bg-crimson text-softwhite 
+              text-body-xs md:text-body-md p-2 border-t 
+              border-b border-r border-silver 
+              hover:bg-dark-crimson focus:outline-none
+              ${bodyFont.className}`}
           >
             {translations.bot.sendButton}
           </button>

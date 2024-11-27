@@ -5,7 +5,6 @@ import {
   Intro,
   Projects,
   WrapperScroll,
-  Assistant,
 } from '@/components';
 import { getDictionary } from '../dictionaries';
 import { getAllPosts } from '@/actions';
@@ -25,7 +24,7 @@ export default async function Home({ params }: Props) {
   return (
     <WrapperScroll>
       <section id='#' className='responsive-section'>
-        <Intro translations={intro} />
+        <Intro translations={intro} locale={params.lang} />
       </section>
       <section id={header.experience.href} className='responsive-section'>
         <Experience translations={experience} />

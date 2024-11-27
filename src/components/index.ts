@@ -37,3 +37,4 @@ export * from './Assistant/BotAssistant';
 export * from './Assistant/ChatWindow';
 export * from './Assistant/ChatContent';
 export * from './Assistant/ChatMessages';
+export * from './Assistant/AssistantResponse';
