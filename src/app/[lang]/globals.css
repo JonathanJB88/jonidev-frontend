@@ -53,6 +53,7 @@ body {
     @apply xl:max-w-[1024px];
     @apply 2xl:max-w-[1280px];
     min-height: 100dvh;
+    scroll-margin-top: 24px;
   }
 }
 

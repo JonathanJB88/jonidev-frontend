@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Footer, Header, SocialMedia } from '@/components';
+import { Footer, Header, SocialMedia, WrapperScroll } from '@/components';
 import { bodyFont } from '@/config';
+import { getDictionary } from './dictionaries';
 
 import type { Locale } from '@/interfaces';
 
 import './globals.css';
-import { getDictionary } from './dictionaries';
 
 interface Props {
   children: React.ReactNode;
@@ -25,12 +25,14 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={bodyFont.className}>
-        <div className='main-container'>
-          <Header translations={header} locale={params.lang} />
-          <main className='flex flex-col relative'>{children}</main>
-          <SocialMedia />
-          <Footer translations={footer} />
-        </div>
+        <WrapperScroll>
+          <div className='main-container'>
+            <Header translations={header} locale={params.lang} />
+            <main className='flex flex-col relative'>{children}</main>
+            <SocialMedia />
+            <Footer translations={footer} />
+          </div>
+        </WrapperScroll>
       </body>
     </html>
   );

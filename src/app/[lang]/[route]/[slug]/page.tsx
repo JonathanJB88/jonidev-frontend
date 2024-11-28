@@ -109,11 +109,11 @@ export default async function PostDetail({ params }: Props) {
                     </p>
                   ),
                   blockquote: ({ children }) => (
-                    <p className='px-14'>
+                    <div className='px-14'>
                       <blockquote className='border-l-4 border-silver pl-4 italic my-20'>
                         {children}
                       </blockquote>
-                    </p>
+                    </div>
                   ),
                 },
                 list: {
