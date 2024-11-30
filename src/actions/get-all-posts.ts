@@ -2,7 +2,7 @@
 
 import { postAdapter, sanityClient } from '@/utils';
 import { postQuery } from '@/queries';
-import { Locale, Post, PostResponse } from '@/interfaces';
+import type { Locale, Post, PostResponse } from '@/interfaces';
 
 export const getAllPosts = async (lang: Locale): Promise<Post[]> => {
   const posts = await sanityClient.fetch<PostResponse[]>(

@@ -1,10 +1,11 @@
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { PortableText } from '@portabletext/react';
 import { bodyFont, subtitleFont, titleFont } from '@/config';
 import { getPostDetail } from '@/actions';
 import { urlFor, generatePostMetadata } from '@/utils';
-import { Locale } from '@/interfaces';
+import type { Locale } from '@/interfaces';
 
 interface Props {
   params: {

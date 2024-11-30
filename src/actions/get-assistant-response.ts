@@ -2,7 +2,7 @@
 
 import OpenAI from 'openai';
 import { systemPrompt } from '@/config';
-import { Locale } from '@/interfaces';
+import type { Locale } from '@/interfaces';
 
 const openai = new OpenAI({
   apiKey: process.env.openAiApiKey,

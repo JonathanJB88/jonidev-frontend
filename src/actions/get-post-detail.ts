@@ -2,7 +2,7 @@
 
 import { postDetailAdapter, sanityClient } from '@/utils';
 import { postDetailQuery } from '@/queries';
-import { Locale, PostDetail, PostDetailResponse } from '@/interfaces';
+import type { Locale, PostDetail, PostDetailResponse } from '@/interfaces';
 
 export const getPostDetail = async (
   slug: string,

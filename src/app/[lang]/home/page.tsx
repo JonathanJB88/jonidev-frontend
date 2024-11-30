@@ -1,15 +1,8 @@
-import {
-  About,
-  Blog,
-  Experience,
-  Intro,
-  Projects,
-  WrapperScroll,
-} from '@/components';
-import { getDictionary } from '../dictionaries';
+import { About, Blog, Experience, Intro, Projects } from '@/components';
 import { getAllPosts } from '@/actions';
+import { getDictionary } from '../dictionaries';
 
-import { Locale } from '@/interfaces';
+import type { Locale } from '@/interfaces';
 
 interface Props {
   params: Record<'lang', Locale>;

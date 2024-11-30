@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { Locale } from '@/interfaces';
+import type { Locale } from '@/interfaces';
 
 interface Props {
   params: Record<'lang', Locale>;
