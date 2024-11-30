@@ -67,7 +67,7 @@ export const LangSwitcher = () => {
         <select
           onChange={onSwitch}
           value={currentLocale}
-          className='w-full p-1 bg-charcoal text-softwhite text-body-xs border-none focus:outline-none focus:ring-0 focus:border-0 focus:ring-transparent focus:border-transparent cursor-pointer transition-all duration-300 ease-in-out hover:bg-gray-700 hover:text-softwhite'
+          className='w-ful p-1 bg-charcoal text-softwhite text-xs border-none focus:outline-none focus:ring-0 focus:border-0 focus:ring-transparent focus:border-transparent cursor-pointer transition-all duration-300 ease-in-out hover:bg-gray-700 hover:text-softwhite'
         >
           <option value='es'>ES</option>
           <option value='en'>EN</option>

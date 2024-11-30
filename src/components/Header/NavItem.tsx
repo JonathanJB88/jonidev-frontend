@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { ReactNode, isValidElement, cloneElement } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -53,13 +53,15 @@ export const NavItem = ({
     mobileHidden && 'hidden md:inline-flex',
     !mobileHidden && 'inline-flex',
     isActive ? 'text-crimson' : 'hover:text-softwhite',
-    'mx-2',
+    typeof node === 'string' && 'mx-2',
     'hover:text-crimson',
     'font-bold',
     'transition-colors',
     'whitespace-nowrap',
     subtitleFont.className
   );
+
+  const content = isValidElement(node) ? cloneElement(node) : node;
 
   return (
     <Link
@@ -71,7 +73,7 @@ export const NavItem = ({
       scroll={false}
       className={linkClassName}
     >
-      {node}
+      {content}
     </Link>
   );
 };
