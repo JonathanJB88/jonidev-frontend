@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { bodyFont, subtitleFont, titleFont } from '@/config';
 import { getPostDetail } from '@/actions';
-import { urlFor } from '@/utils';
+import { urlFor, generatePostMetadata } from '@/utils';
 import { Locale } from '@/interfaces';
 
 interface Props {
@@ -12,6 +12,12 @@ interface Props {
     route: 'writing' | 'publicaciones';
     slug: string;
   };
+}
+
+export async function generateMetadata({
+  params,
+}: Readonly<Props>): Promise<Metadata> {
+  return generatePostMetadata({ params });
 }
 
 export default async function PostDetail({ params }: Props) {
