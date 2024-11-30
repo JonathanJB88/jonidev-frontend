@@ -1,5 +1,5 @@
 import { HeroParallax, MobileGrid } from '@/components';
-import { Project, ProjectItem, ProjectTranslations } from '@/interfaces';
+import type { Project, ProjectItem, ProjectTranslations } from '@/interfaces';
 
 interface Props {
   translations: ProjectTranslations;

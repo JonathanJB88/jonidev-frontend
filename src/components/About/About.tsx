@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { titleFont } from '@/config';
 import { FadeInSection, SliderSkills } from '@/components';
-import { AboutTranslations, Skill } from '@/interfaces';
+import type { AboutTranslations, Skill } from '@/interfaces';
 
 interface Props {
   translations: AboutTranslations;

@@ -2,7 +2,7 @@
 
 import { sanityClient } from '@/utils';
 import { postBySlugQuery } from '@/queries';
-import { Locale, PostResponse } from '@/interfaces';
+import type { Locale, PostResponse } from '@/interfaces';
 
 export const getTranslatedSlug = async (
   currentLang: Locale,

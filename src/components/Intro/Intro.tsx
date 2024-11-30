@@ -13,7 +13,7 @@ import {
   BotAssistant,
 } from '@/components';
 import { useScrollOpacity } from '@/hooks';
-import { IntroTranslations, Locale } from '@/interfaces';
+import type { IntroTranslations, Locale } from '@/interfaces';
 
 interface Props {
   translations: IntroTranslations;
@@ -61,7 +61,9 @@ export const Intro = ({ translations, locale }: Props) => {
                 </span>
               </Title>
 
-              <p className='text-softwhite mb-4'>{description}</p>
+              <p className='text-softwhite mb-4 text-body-xs md:text-body-md'>
+                {description}
+              </p>
             </div>
           </FadeInSection>
 

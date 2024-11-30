@@ -1,6 +1,6 @@
 import { bodyFont } from '@/config';
 import { AssistantResponse } from '@/components';
-import { IntroTranslations, BotMessage } from '@/interfaces';
+import type { IntroTranslations, BotMessage } from '@/interfaces';
 
 interface Props {
   translations: IntroTranslations;

@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import sanitizeHtml from 'sanitize-html';
 
 interface Props {
@@ -13,11 +13,9 @@ export const AssistantResponse = ({ response }: Props) => {
     },
   });
 
-  const components = {
-    p: ({ children }: ReactMarkdownProps) => (
-      <p className='text-xs md:text-base'>{children}</p>
-    ),
-    a: ({ href, children }: ReactMarkdownProps) => (
+  const components: Components = {
+    p: ({ children }) => <p className='text-xs md:text-base'>{children}</p>,
+    a: ({ href, children }) => (
       <a
         href={href}
         target='_blank'
@@ -27,13 +25,13 @@ export const AssistantResponse = ({ response }: Props) => {
         {children}
       </a>
     ),
-    ul: ({ children }: ReactMarkdownProps) => (
+    ul: ({ children }) => (
       <ul className='list-disc list-inside text-xs md:text-base'>{children}</ul>
     ),
-    ol: ({ children }: ReactMarkdownProps) => (
+    ol: ({ children }) => (
       <ol className='list-decimal list-inside'>{children}</ol>
     ),
-    li: ({ children }: ReactMarkdownProps) => (
+    li: ({ children }) => (
       <li className='ml-4 text-xs md:text-base'>{children}</li>
     ),
   };

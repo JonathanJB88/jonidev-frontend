@@ -1,15 +1,8 @@
-import {
-  About,
-  Blog,
-  Experience,
-  Intro,
-  Projects,
-  WrapperScroll,
-} from '@/components';
-import { getDictionary } from '../dictionaries';
+import { About, Blog, Experience, Intro, Projects } from '@/components';
 import { getAllPosts } from '@/actions';
+import { getDictionary } from '../dictionaries';
 
-import { Locale } from '@/interfaces';
+import type { Locale } from '@/interfaces';
 
 interface Props {
   params: Record<'lang', Locale>;
@@ -22,7 +15,7 @@ export default async function Home({ params }: Props) {
   const posts = await getAllPosts(params.lang);
 
   return (
-    <WrapperScroll>
+    <>
       <section id='#' className='responsive-section'>
         <Intro translations={intro} locale={params.lang} />
       </section>
@@ -38,6 +31,6 @@ export default async function Home({ params }: Props) {
       <section id={header.writing.href} className='responsive-section'>
         <Blog posts={posts} translations={writing} />
       </section>
-    </WrapperScroll>
+    </>
   );
 }

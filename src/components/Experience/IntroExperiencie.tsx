@@ -1,7 +1,7 @@
 import { FaFileDownload } from 'react-icons/fa';
 import { subtitleFont, titleFont } from '@/config';
 import { FadeInSection } from '@/components';
-import { ExperienceTranslations } from '@/interfaces';
+import type { ExperienceTranslations } from '@/interfaces';
 
 interface Props {
   translations: ExperienceTranslations;

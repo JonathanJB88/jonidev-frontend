@@ -1,5 +1,5 @@
 import { ExperienceContent, IntroExperiencie } from '@/components';
-import { ExperienceTranslations } from '@/interfaces';
+import type { ExperienceTranslations } from '@/interfaces';
 
 interface Props {
   translations: ExperienceTranslations;

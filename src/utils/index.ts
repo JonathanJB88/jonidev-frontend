@@ -4,3 +4,6 @@ export * from './sanity/sanityClient';
 export * from './sanity/sanityImage';
 export * from './adapters/postAdapter';
 export * from './adapters/postDetailAdapter';
+export * from './metadata/getMetadataTranslations';
+export * from './metadata/generateBaseMetadata';
+export * from './metadata/generatePostMetadata';

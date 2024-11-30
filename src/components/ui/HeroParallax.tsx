@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { IntroProjects, ProjectCard } from '@/components';
-import { Project, ProjectTranslations } from '@/interfaces';
+import type { Project, ProjectTranslations } from '@/interfaces';
 
 interface Props {
   projects: Project[];

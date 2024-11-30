@@ -1,10 +1,11 @@
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { PortableText } from '@portabletext/react';
 import { bodyFont, subtitleFont, titleFont } from '@/config';
 import { getPostDetail } from '@/actions';
-import { urlFor } from '@/utils';
-import { Locale } from '@/interfaces';
+import { urlFor, generatePostMetadata } from '@/utils';
+import type { Locale } from '@/interfaces';
 
 interface Props {
   params: {
@@ -12,6 +13,12 @@ interface Props {
     route: 'writing' | 'publicaciones';
     slug: string;
   };
+}
+
+export async function generateMetadata({
+  params,
+}: Readonly<Props>): Promise<Metadata> {
+  return generatePostMetadata({ params });
 }
 
 export default async function PostDetail({ params }: Props) {
@@ -109,11 +116,11 @@ export default async function PostDetail({ params }: Props) {
                     </p>
                   ),
                   blockquote: ({ children }) => (
-                    <p className='px-14'>
+                    <div className='px-14'>
                       <blockquote className='border-l-4 border-silver pl-4 italic my-20'>
                         {children}
                       </blockquote>
-                    </p>
+                    </div>
                   ),
                 },
                 list: {
