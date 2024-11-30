@@ -61,7 +61,9 @@ export const Intro = ({ translations, locale }: Props) => {
                 </span>
               </Title>
 
-              <p className='text-softwhite mb-4'>{description}</p>
+              <p className='text-softwhite mb-4 text-body-xs md:text-body-md'>
+                {description}
+              </p>
             </div>
           </FadeInSection>
 

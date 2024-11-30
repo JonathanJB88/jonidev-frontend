@@ -71,7 +71,9 @@ export const BotAssistant = ({ opacity, translations, locale }: Props) => {
         <div className='flex flex-col items-end justify-end'>
           {showCTA && (
             <div className={`mb-2 p-2 bg-silver rounded shadow-lg fade-in`}>
-              <p className={`text-charcoal text-sm ${bodyFont.className}`}>
+              <p
+                className={`text-charcoal text-xs md:text-sm ${bodyFont.className}`}
+              >
                 {translations.bot.cta}
               </p>
             </div>

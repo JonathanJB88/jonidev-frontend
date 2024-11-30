@@ -16,4 +16,5 @@ export const sanityClient = createClient({
   token: apiToken,
   apiVersion,
   useCdn: !isDevMode,
+  ignoreBrowserTokenWarning: true,
 });
