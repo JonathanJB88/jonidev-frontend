@@ -1,6 +1,6 @@
 import { titleFont } from '@/config';
 import { FadeInSection } from '@/components';
-import { ProjectTranslations } from '@/interfaces';
+import type { ProjectTranslations } from '@/interfaces';
 
 interface Props {
   translations: ProjectTranslations;

@@ -1,5 +1,3 @@
-import { Locale } from '@/interfaces';
-
 interface MetadataTitle {
   default: string;
   template: string;
@@ -8,7 +6,7 @@ interface MetadataTitle {
 interface MetadataOpenGraph {
   title: string;
   description: string;
-  locale: Locale;
+  locale: string;
 }
 
 interface MetadataTwitter {
@@ -24,7 +22,7 @@ interface MetadataAlternates {
   };
 }
 
-interface MetadataTranslations {
+export interface MetadataTranslations {
   title: MetadataTitle;
   description: string;
   keywords: string[];

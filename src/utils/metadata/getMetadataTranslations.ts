@@ -1,4 +1,4 @@
-import { Locale, MetadataTranslations } from '@/interfaces';
+import type { Locale, MetadataTranslations } from '@/interfaces';
 
 const defaultKeywords = [
   'Jonathan Bracho',

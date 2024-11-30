@@ -5,7 +5,7 @@ import { getAssistantResponse } from '@/actions';
 import { bodyFont } from '@/config';
 import { ChatMessages } from '@/components';
 
-import { IntroTranslations, BotMessage, Locale } from '@/interfaces';
+import type { IntroTranslations, BotMessage, Locale } from '@/interfaces';
 
 interface Props {
   translations: IntroTranslations;

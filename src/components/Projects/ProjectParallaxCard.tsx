@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MotionValue, motion } from 'framer-motion';
-import { Project } from '@/interfaces';
+import type { Project } from '@/interfaces';
 
 interface Props {
   project: Project;

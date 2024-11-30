@@ -9,6 +9,7 @@ export const titleFont = Bitter({
   display: 'swap',
   style: 'normal',
 });
+
 export const subtitleFont = Roboto({
   subsets: ['latin'],
   weight: ['400'],
@@ -18,6 +19,7 @@ export const subtitleFont = Roboto({
   display: 'swap',
   style: 'normal',
 });
+
 export const bodyFont = Inter({
   subsets: ['latin'],
   weight: ['400'],

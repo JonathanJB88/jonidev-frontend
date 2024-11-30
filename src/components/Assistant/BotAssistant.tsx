@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { TbMessageChatbot } from 'react-icons/tb';
 import { ChatWindow } from '@/components';
 import { bodyFont } from '@/config';
-import { IntroTranslations, Locale } from '@/interfaces';
+import type { IntroTranslations, Locale } from '@/interfaces';
 
 interface Props {
   opacity: number;

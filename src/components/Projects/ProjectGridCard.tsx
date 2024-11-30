@@ -1,7 +1,7 @@
-import { Project } from '@/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoIosLink } from 'react-icons/io';
+import type { Project } from '@/interfaces';
 
 interface Props {
   project: Project;

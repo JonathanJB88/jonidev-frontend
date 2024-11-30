@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import type { Locale } from '@/interfaces';
 import { getPostDetail, getTranslatedSlug } from '@/actions';
 import { getMetadataTranslations } from '@/utils';
+
+import type { Locale } from '@/interfaces';
 
 interface Params {
   lang: Locale;
@@ -54,7 +55,7 @@ export const generatePostMetadata = async ({
       card: 'summary_large_image',
       title: post.title,
       description: post.description || metadata.twitter.description,
-      image: post.cover || `${baseDomain}/img/jonathan_bracho-logo.png`,
+      images: post.cover || `${baseDomain}/img/jonathan_bracho-logo.png`,
     },
     alternates: {
       canonical: `${baseDomain}/${lang}/${route}/${slug}`,

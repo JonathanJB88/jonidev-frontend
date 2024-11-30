@@ -1,5 +1,5 @@
 import { FadeInSection, IntroProjects, ProjectGridCard } from '@/components';
-import { Project, ProjectTranslations } from '@/interfaces';
+import type { Project, ProjectTranslations } from '@/interfaces';
 
 interface Props {
   projects: Project[];

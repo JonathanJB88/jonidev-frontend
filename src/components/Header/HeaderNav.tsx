@@ -1,4 +1,5 @@
 'use client';
+
 import { NavItem } from '@/components';
 import { useActiveSection } from '@/hooks';
 import type { HeaderOptions } from '@/interfaces';

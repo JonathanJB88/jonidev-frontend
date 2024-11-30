@@ -8,9 +8,15 @@ interface Params {
 
 export const generateBaseMetadata = ({
   params,
-}: Readonly<Params>): Promise<Metadata> => {
+}: Readonly<Params>): Metadata => {
   const metadata = getMetadataTranslations(params.lang);
-  const baseDomain = new URL(process.env.originDomain).toString();
+  const originDomain = process.env.originDomain;
+
+  if (!originDomain) {
+    throw new Error('originDomain is not defined');
+  }
+
+  const baseDomain = new URL(originDomain);
 
   return {
     metadataBase: baseDomain,
@@ -52,6 +58,8 @@ export const generateBaseMetadata = ({
       apple: '/apple-touch-icon.png',
     },
     alternates: metadata.alternates,
+
+    // ! Google verification in case you need it
     // verification: {
     //   google: 'tuCodigoDeVerificacionGoogle',
     // },

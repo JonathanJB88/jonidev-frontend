@@ -1,5 +1,5 @@
 import { FadeInSection, TimelineItem } from '@/components';
-import { ExperienceItem, ExperienceTranslations } from '@/interfaces';
+import type { ExperienceItem, ExperienceTranslations } from '@/interfaces';
 
 interface Props {
   translations: ExperienceTranslations;

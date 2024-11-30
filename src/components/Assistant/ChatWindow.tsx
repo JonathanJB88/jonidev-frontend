@@ -1,7 +1,7 @@
-import { bodyFont, subtitleFont } from '@/config';
+import { subtitleFont } from '@/config';
 import { ChatContent } from '@/components';
 
-import { IntroTranslations, Locale } from '@/interfaces';
+import type { IntroTranslations, Locale } from '@/interfaces';
 
 interface Props {
   onClose: () => void;

@@ -13,7 +13,7 @@ import {
   BotAssistant,
 } from '@/components';
 import { useScrollOpacity } from '@/hooks';
-import { IntroTranslations, Locale } from '@/interfaces';
+import type { IntroTranslations, Locale } from '@/interfaces';
 
 interface Props {
   translations: IntroTranslations;
