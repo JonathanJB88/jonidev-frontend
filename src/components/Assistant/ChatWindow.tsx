@@ -11,7 +11,7 @@ interface Props {
 
 export const ChatWindow = ({ onClose, translations, locale }: Props) => {
   return (
-    <div className='fixed bottom-4 right-4 md:bottom-5 md:right-16 z-50 w-72 md:w-96 bg-charcoal shadow-xl flex flex-col overflow-hidden chat-window'>
+    <div className='fixed inset-0 w-[100dvw] h-[100dvh] md:inset-auto md:bottom-5 md:right-16 md:w-96 md:h-auto z-50 bg-charcoal shadow-xl flex flex-col overflow-hidden chat-window'>
       <button
         onClick={onClose}
         aria-label={translations.bot.closeAriaLabel}
