@@ -59,7 +59,10 @@ export const BotAssistant = ({ opacity, translations, locale }: Props) => {
   return (
     <div
       className='fixed bottom-4 right-4 md:bottom-2 md:right-16 z-50'
-      style={{ opacity, transition: 'opacity 0.1s ease-in-out' }}
+      style={{
+        opacity: isChatOpen ? 1 : opacity,
+        transition: 'opacity 0.1s ease-in-out',
+      }}
     >
       {isChatOpen ? (
         <ChatWindow

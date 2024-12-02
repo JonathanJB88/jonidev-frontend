@@ -60,7 +60,7 @@ export default async function PostDetail({ params }: Props) {
             />
             <div className={`ml-3 text-silver ${bodyFont.className}`}>
               <p className='text-lg'>{post.author.name}</p>
-              <p className='text-sm'>{post.postDate}</p>
+              <p className='text-sm capitalize'>{post.postDate}</p>
             </div>
           </div>
 
