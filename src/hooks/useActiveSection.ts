@@ -71,7 +71,7 @@ export const useActiveSection = (menuItems: HeaderOptions[]) => {
       });
       observer.disconnect();
     };
-  }, [pathname]);
+  }, [pathname, menuItems]);
 
   return activeSection;
 };
