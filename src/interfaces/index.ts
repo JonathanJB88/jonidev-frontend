@@ -1,4 +1,4 @@
-export * from './projects.interface';
+export * from './project.interface';
 export * from './locales.interface';
 export * from './dictionary.interface';
 export * from './skill.interface';
