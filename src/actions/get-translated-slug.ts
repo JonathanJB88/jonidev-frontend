@@ -14,8 +14,7 @@ export const getTranslatedSlug = async (
     { slug, lang: currentLang },
     {
       next: {
-        // revalidate: 3600 * 24 * 7, // Every week
-        revalidate: 1, // Every second
+        revalidate: process.env.NODE_ENV === 'development' ? 1 : 3600 * 24 * 7, // Every week
       },
     }
   );

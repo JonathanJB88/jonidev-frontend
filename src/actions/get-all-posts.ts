@@ -10,8 +10,7 @@ export const getAllPosts = async (lang: Locale): Promise<Post[]> => {
     {},
     {
       next: {
-        // revalidate: 3600 * 24 * 7, // Every week
-        revalidate: 1, // Every second
+        revalidate: process.env.NODE_ENV === 'development' ? 1 : 3600 * 24 * 7, // Every week
       },
     }
   );

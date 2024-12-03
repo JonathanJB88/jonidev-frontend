@@ -13,8 +13,7 @@ export const getPostDetail = async (
     { slug, lang },
     {
       next: {
-        // revalidate: 3600 * 24 * 30 * 12, // Every year
-        revalidate: 1, // Every second
+        revalidate: process.env.NODE_ENV === 'development' ? 1 : 3600 * 24 * 7, // Every week
       },
     }
   );
